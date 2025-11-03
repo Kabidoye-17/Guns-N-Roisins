@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Headphones } from '@phosphor-icons/react';
 
 const Card = styled.div`
-  width: 370px;
+  width: 300px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -10,18 +10,18 @@ const Card = styled.div`
 
 const ImagePlaceholder = styled.div`
   width: 100%;
-  height: 370px;
+  height: 300px;
   background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #666;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 370px;
+  height: 300px;
   object-fit: cover;
 `;
 
@@ -89,7 +89,7 @@ function EpisodeCard({ image, title, duration, host, guest, description }) {
       {image ? (
         <Image src={image} alt={title} />
       ) : (
-        <ImagePlaceholder>370x370</ImagePlaceholder>
+        <ImagePlaceholder>300x300</ImagePlaceholder>
       )}
       <Content>
         <TitleRow>
