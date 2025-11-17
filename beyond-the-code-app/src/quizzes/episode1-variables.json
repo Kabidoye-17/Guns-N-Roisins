@@ -1,0 +1,40 @@
+{
+  "id": "episode1-variables",
+  "title": "Variables & Data Types",
+  "description": "Test your knowledge of JavaScript variables and data types in this quick quiz.",
+  "difficulty": "Beginner",
+  "category": "JavaScript Basics",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Which keyword creates a block-scoped variable in JavaScript?",
+      "options": [
+        { "text": "var", "correct": false },
+        { "text": "let", "correct": true },
+        { "text": "const", "correct": false },
+        { "text": "function", "correct": false }
+      ],
+      "explanation": "The 'let' keyword creates block-scoped variables, while 'var' is function-scoped. 'const' creates block-scoped constants."
+    },
+    {
+      "id": "q2",
+      "question": "What is the result of typeof null in JavaScript?",
+      "options": [
+        { "text": "null", "correct": false },
+        { "text": "object", "correct": true }
+      ],
+      "explanation": "typeof null returns 'object' due to a legacy bug in JavaScript that has been kept for backward compatibility."
+    },
+    {
+      "id": "q3",
+      "question": "Which of the following is NOT a primitive data type in JavaScript?",
+      "options": [
+        { "text": "string", "correct": false },
+        { "text": "boolean", "correct": false },
+        { "text": "array", "correct": true },
+        { "text": "number", "correct": false }
+      ],
+      "explanation": "Arrays are objects in JavaScript, not primitive types. The primitive types are: string, number, boolean, null, undefined, symbol, and bigint."
+    }
+  ]
+}

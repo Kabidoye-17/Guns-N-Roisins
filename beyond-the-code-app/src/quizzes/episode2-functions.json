@@ -1,0 +1,52 @@
+{
+  "id": "episode2-functions",
+  "title": "Functions & Scope",
+  "description": "Test your understanding of JavaScript functions and variable scope.",
+  "difficulty": "Intermediate",
+  "category": "JavaScript Fundamentals",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is the difference between function declarations and function expressions?",
+      "options": [
+        { "text": "Function declarations are hoisted, function expressions are not", "correct": true },
+        { "text": "Function expressions are faster", "correct": false },
+        { "text": "There is no difference", "correct": false },
+        { "text": "Function declarations cannot have parameters", "correct": false }
+      ],
+      "explanation": "Function declarations are hoisted to the top of their scope, meaning they can be called before they are defined. Function expressions are not hoisted."
+    },
+    {
+      "id": "q2",
+      "question": "What will arrow functions inherit from their surrounding code?",
+      "options": [
+        { "text": "The 'this' context", "correct": true },
+        { "text": "The 'arguments' object", "correct": false },
+        { "text": "Both 'this' and 'arguments'", "correct": false }
+      ],
+      "explanation": "Arrow functions do not have their own 'this' binding. They inherit 'this' from the enclosing lexical scope. They also don't have an 'arguments' object."
+    },
+    {
+      "id": "q3",
+      "question": "What is a closure in JavaScript?",
+      "options": [
+        { "text": "A way to close a function", "correct": false },
+        { "text": "A function that has access to variables from an outer function's scope", "correct": true },
+        { "text": "A private class method", "correct": false },
+        { "text": "A syntax error", "correct": false }
+      ],
+      "explanation": "A closure is a function that retains access to variables from its outer (enclosing) function's scope, even after the outer function has finished executing."
+    },
+    {
+      "id": "q4",
+      "question": "What is the purpose of the 'return' statement?",
+      "options": [
+        { "text": "To exit the function and optionally return a value", "correct": true },
+        { "text": "To declare a variable", "correct": false },
+        { "text": "To loop through an array", "correct": false },
+        { "text": "To import modules", "correct": false }
+      ],
+      "explanation": "The 'return' statement ends function execution and specifies a value to be returned to the function caller. Without it, functions return 'undefined'."
+    }
+  ]
+}
