@@ -122,40 +122,23 @@ const PlayButton = styled.button`
   }
 `;
 
-// Accent color presets - just the color, not full themes
-const accentColors = {
-  purple: '#8d75e6',
-  gold: '#F0A848',
-  teal: '#2dbf8c',
-  coral: '#f47e3f',
-  blue: '#4E8FD0',
-  pink: '#ee86b7',
-  mint: '#98D8C8'
-};
+const ACCENT_COLOR = '#ee86b7';
 
-function EpisodeCard({ image, title, duration, host, guest, description, colorTheme = 'mint' }) {
-  const accentColor = accentColors[colorTheme] || accentColors.mint;
-
+function EpisodeCard({ image, title, duration, host, guest, description }) {
   return (
-    <Card accentColor={accentColor}>
-      {image ? (
-        <Image src={image} alt={title} />
-      ) : (
-        <ImagePlaceholder accentColor={accentColor}>
-          <Headphones size={48} weight="duotone" />
-        </ImagePlaceholder>
-      )}
+    <Card accentColor={ACCENT_COLOR}>
+        <Image src={process.env.PUBLIC_URL + '/podcast.jpg'} alt={title} />
       <Content>
         <TitleRow>
           <Title>{title}</Title>
-          <Duration accentColor={accentColor}>
+          <Duration accentColor={ACCENT_COLOR}>
             {duration}
           </Duration>
         </TitleRow>
         <Info><strong>Host:</strong> {host}</Info>
         <Info><strong>Guest:</strong> {guest}</Info>
         <Description>"{description}"</Description>
-        <PlayButton accentColor={accentColor}>
+        <PlayButton accentColor={ACCENT_COLOR}>
           <Headphones size={24} weight="fill" />
         </PlayButton>
       </Content>

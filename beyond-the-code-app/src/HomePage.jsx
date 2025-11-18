@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ArrowRight, PuzzlePiece, Brain } from '@phosphor-icons/react';
+import { ArrowRight, ArrowDown, PuzzlePiece, Brain } from '@phosphor-icons/react';
 import Carousel from './Carousel';
 import episodes from './episodes.json';
 
@@ -8,13 +8,47 @@ import episodes from './episodes.json';
 const HeroPage = styled.div`
   width: 100%;
   min-height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  background: linear-gradient(to bottom, #7c3aed 0%, #a990f5 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #6366f1 30%, #8b5cf6 70%, #a990f5 100%);
   padding: 80px;
+  gap: 60px;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    padding: 60px 40px;
+    gap: 40px;
+  }
 
   @media (max-width: 768px) {
     padding: 40px 24px;
@@ -49,10 +83,12 @@ const HeroTagline = styled.h2`
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  color: white;
+  background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 20px 0;
   letter-spacing: -0.01em;
-  opacity: 0.9;
 
   @media (max-width: 768px) {
     font-size: 20px;
@@ -85,19 +121,19 @@ const HeroPrimaryButton = styled(Link)`
   align-items: center;
   gap: 8px;
   padding: 16px 32px;
-  background: white;
-  color: #7e67c9;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
   text-decoration: none;
   border-radius: 8px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
   }
 
   @media (max-width: 768px) {
@@ -106,24 +142,26 @@ const HeroPrimaryButton = styled(Link)`
   }
 `;
 
-const HeroSecondaryButton = styled(Link)`
+const HeroSecondaryButton = styled.button`
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 16px 32px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  border: 2px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
 
   &:hover {
-    background: white;
-    color: #7e67c9;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
   }
 
@@ -138,7 +176,7 @@ const HeroCircle1 = styled.div`
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0) 70%);
   top: -150px;
   right: -50px;
   pointer-events: none;
@@ -157,7 +195,7 @@ const HeroCircle2 = styled.div`
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(236, 72, 153, 0) 70%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0) 70%);
   bottom: -100px;
   right: 15%;
   pointer-events: none;
@@ -176,7 +214,7 @@ const HeroCircle3 = styled.div`
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(110, 181, 255, 0.12) 0%, rgba(110, 181, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, rgba(96, 165, 250, 0) 70%);
   top: 20%;
   right: 25%;
   pointer-events: none;
@@ -193,7 +231,7 @@ const HeroCircle4 = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, rgba(167, 139, 250, 0) 70%);
   top: 50%;
   right: 5%;
   pointer-events: none;
@@ -209,7 +247,7 @@ const HeroBlob = styled.div`
   position: absolute;
   width: 600px;
   height: 400px;
-  background: rgba(255, 255, 255, 0.05);
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   bottom: -100px;
   left: -100px;
@@ -412,7 +450,121 @@ const ContentWrapper = styled.div`
   width: 100%;
 `;
 
+const AccentBar = styled.div`
+  width: 120px;
+  height: 6px;
+  background: linear-gradient(90deg, #F0A848 0%, #25A871 33%, #4E8FD0 66%, #EE86B7 100%);
+  border-radius: 3px;
+  margin: 0 auto 32px;
+  position: relative;
+  z-index: 2;
+`;
+
+const FeatureBadges = styled.div`
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+`;
+
+const Badge = styled.div`
+  padding: 8px 20px;
+  background: ${props => props.bgColor};
+  color: white;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px ${props => props.shadowColor};
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 6px 16px;
+    font-size: 13px;
+  }
+`;
+
+const HeroVisual = styled.div`
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 968px) {
+    display: none;
+  }
+`;
+
+const FeatureCard = styled.div`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateX(8px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+`;
+
+const IconCircle = styled.div`
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: ${props => props.bgColor || 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px ${props => props.shadowColor || 'rgba(59, 130, 246, 0.3)'};
+`;
+
+const FeatureText = styled.div`
+  flex: 1;
+`;
+
+const FeatureTitle = styled.h3`
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 4px 0;
+`;
+
+const FeatureDescription = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.5;
+`;
+
 function HomePage() {
+  const scrollToEpisodes = () => {
+    const episodesSection = document.getElementById('episodes-section');
+    if (episodesSection) {
+      episodesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <HeroPage>
@@ -420,6 +572,7 @@ function HomePage() {
         <HeroCircle2 />
         <HeroCircle3 />
         <HeroCircle4 />
+        <HeroBlob />
         <HeroContent>
           <HeroTitle>Beyond the Code</HeroTitle>
           <HeroTagline>Where Technology Meets Innovation</HeroTagline>
@@ -429,11 +582,43 @@ function HomePage() {
           </HeroDescription>
           <HeroButtonGroup>
             <HeroPrimaryButton to="/episodes">Listen Now</HeroPrimaryButton>
-            <HeroSecondaryButton to="/quiz/episode1">Browse Episodes</HeroSecondaryButton>
+            <HeroSecondaryButton onClick={scrollToEpisodes}>
+              Browse Episodes
+              <ArrowDown size={20} weight="bold" />
+            </HeroSecondaryButton>
           </HeroButtonGroup>
         </HeroContent>
+        <HeroVisual>
+          <FeatureCard>
+            <IconCircle bgColor="linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)" shadowColor="rgba(59, 130, 246, 0.4)">
+              <Brain size={28} weight="bold" color="white" />
+            </IconCircle>
+            <FeatureText>
+              <FeatureTitle>Expert Insights</FeatureTitle>
+              <FeatureDescription>Deep dives into tech leadership and innovation</FeatureDescription>
+            </FeatureText>
+          </FeatureCard>
+          <FeatureCard>
+            <IconCircle bgColor="linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%)" shadowColor="rgba(139, 92, 246, 0.4)">
+              <PuzzlePiece size={28} weight="bold" color="white" />
+            </IconCircle>
+            <FeatureText>
+              <FeatureTitle>Interactive Quizzes</FeatureTitle>
+              <FeatureDescription>Test your knowledge with engaging challenges</FeatureDescription>
+            </FeatureText>
+          </FeatureCard>
+          <FeatureCard>
+            <IconCircle bgColor="linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)" shadowColor="rgba(99, 102, 241, 0.4)">
+              <ArrowRight size={28} weight="bold" color="white" />
+            </IconCircle>
+            <FeatureText>
+              <FeatureTitle>Latest Episodes</FeatureTitle>
+              <FeatureDescription>Stay updated with cutting-edge tech stories</FeatureDescription>
+            </FeatureText>
+          </FeatureCard>
+        </HeroVisual>
       </HeroPage>
-      <Page bgColor="#a990f5">
+      <Page id="episodes-section" bgColor="#a990f5">
         <Circle1 />
         <Circle2 />
         <Circle3 />
@@ -442,9 +627,6 @@ function HomePage() {
           <SectionHeading>Hear From The Experts</SectionHeading>
           <Carousel episodes={episodes} />
         </ContentWrapper>
-      </Page>
-      <Page bgColor="#d0d0d0">
-        <h1>Page 3</h1>
       </Page>
     </>
   );
