@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Play, Pause, ArrowLeft, GameController, ArrowRight } from '@phosphor-icons/react';
 import Header from './Header';
@@ -7,9 +7,11 @@ import Footer from './Footer';
 import episodes from './episodes.json';
 
 const accentColors = {
-  purple: '#7c3aed',
-  violet: '#9333ea',
-  magenta: '#a855f7'
+  yellow: '#fff79e',
+  pink: '#ffbaf7',
+  green: '#C1FFBA',
+  blue: '#BAEFF5',
+  purple: '#8d75e6'
 };
 
 const PageContainer = styled.div`
@@ -30,15 +32,15 @@ const PageContainer = styled.div`
     background-image:
       repeating-linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.02) 0px,
-        rgba(0, 0, 0, 0.02) 1px,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
         transparent 1px,
         transparent 60px
       ),
       repeating-linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.02) 0px,
-        rgba(0, 0, 0, 0.02) 1px,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
         transparent 1px,
         transparent 60px
       );
@@ -47,102 +49,146 @@ const PageContainer = styled.div`
   }
 `;
 
-const HeroBanner = styled.div`
-  width: 100%;
-  padding: 60px 40px 40px;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
+// Hexagon shape
+const Hexagon = styled.div`
+  position: absolute;
+  width: ${props => props.size || '200px'};
+  height: ${props => props.size ? `calc(${props.size} * 0.866)` : '173px'};
+  background: ${props => props.color};
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+  ${props => props.position}
 
   @media (max-width: 768px) {
-    padding: 40px 24px 30px;
+    width: ${props => props.mobileSize || '120px'};
+    height: ${props => props.mobileSize ? `calc(${props.mobileSize} * 0.866)` : '104px'};
+  }
+`;
+
+// Diamond shape
+const Diamond = styled.div`
+  position: absolute;
+  width: ${props => props.size || '180px'};
+  height: ${props => props.size || '180px'};
+  background: ${props => props.color};
+  transform: rotate(45deg);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 20px;
+  ${props => props.position}
+
+  @media (max-width: 768px) {
+    width: ${props => props.mobileSize || '100px'};
+    height: ${props => props.mobileSize || '100px'};
+  }
+`;
+
+// Parallelogram shape
+const Parallelogram = styled.div`
+  position: absolute;
+  width: ${props => props.width || '240px'};
+  height: ${props => props.height || '160px'};
+  background: ${props => props.color};
+  transform: skew(-20deg);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 16px;
+  ${props => props.position}
+
+  @media (max-width: 768px) {
+    width: ${props => props.mobileWidth || '140px'};
+    height: ${props => props.mobileHeight || '90px'};
+  }
+`;
+
+const ContentContainer = styled.div`
+  position: relative;
+  z-index: 2;
+  padding: 60px 40px 80px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 40px 24px 60px;
   }
 `;
 
 const EpisodeTitle = styled.h1`
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 700;
   color: white;
-  margin: 0;
+  margin: 0 0 16px 0;
   text-align: center;
   line-height: 1.2;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    font-size: 32px;
+    font-size: 36px;
+  }
+`;
+
+const EpisodeMeta = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+`;
+
+const MetaItem = styled.span`
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+
+  strong {
+    color: ${props => props.accentColor || 'white'};
+    font-weight: 700;
   }
 `;
 
 const EpisodeImage = styled.img`
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   height: 400px;
   object-fit: cover;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 48px;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 2;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    height: 300px;
-    border-radius: 12px;
+    height: 280px;
+    margin-bottom: 36px;
   }
 `;
 
-const ContentWrapper = styled.div`
-  background: linear-gradient(180deg, transparent 0%, #ffffff 10%, #f8f9fa 70%, #e9ecef 100%);
-  position: relative;
-  z-index: 2;
-  margin-top: -40px;
-  border-radius: 32px 32px 0 0;
-  padding-top: 60px;
-
-  @media (max-width: 768px) {
-    border-radius: 24px 24px 0 0;
-    padding-top: 40px;
-    margin-top: -30px;
-  }
-`;
-
-const AudioPlayerSection = styled.div`
-  padding: 0 40px 40px;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    padding: 0 24px 24px;
-  }
-`;
-
-const PlayerTitle = styled.h2`
+const SectionTitle = styled.h2`
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 32px;
   font-weight: 700;
-  color: ${props => props.accentColor || '#1a1a1a'};
-  margin: 0 0 24px 0;
-  text-align: center;
+  color: white;
+  margin: 48px 0 24px 0;
+  text-align: left;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 26px;
   }
 `;
 
-const CustomAudioPlayer = styled.div`
-  background: white;
-  border-radius: 20px;
+const AudioPlayerContainer = styled.div`
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  }
+  margin-bottom: 48px;
+  border: 2px solid ${props => props.accentColor}60;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     padding: 24px;
@@ -159,20 +205,20 @@ const PlayPauseButton = styled.button`
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: ${props => props.accentColor || '#98D8C8'};
+  background: ${props => props.accentColor};
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #4a3a2a;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px ${props => props.accentColor ? `${props.accentColor}40` : 'rgba(152, 216, 200, 0.4)'};
+  box-shadow: 0 4px 16px ${props => props.accentColor}60;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 16px ${props => props.accentColor ? `${props.accentColor}60` : 'rgba(152, 216, 200, 0.6)'};
+    box-shadow: 0 6px 20px ${props => props.accentColor}80;
   }
 
   &:active {
@@ -193,16 +239,17 @@ const ProgressBar = styled.input`
   border-radius: 4px;
   outline: none;
   -webkit-appearance: none;
-  background: #ddd;
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
-    background: ${props => props.accentColor || '#98D8C8'};
+    background: ${props => props.accentColor};
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.2s ease;
 
     &:hover {
@@ -211,12 +258,13 @@ const ProgressBar = styled.input`
   }
 
   &::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
-    background: ${props => props.accentColor || '#98D8C8'};
+    background: ${props => props.accentColor};
     cursor: pointer;
     border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
     &:hover {
       transform: scale(1.2);
@@ -229,207 +277,74 @@ const TimeDisplay = styled.div`
   justify-content: space-between;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: #666;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
 `;
 
 const HiddenAudio = styled.audio`
   display: none;
 `;
 
-const DecorativeCircle = styled.div`
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-`;
-
-const Circle1 = styled(DecorativeCircle)`
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, ${props => props.color}20 0%, ${props => props.color}00 70%);
-  top: 200px;
-  right: -100px;
-
-  @media (max-width: 768px) {
-    width: 250px;
-    height: 250px;
-    right: -80px;
-  }
-`;
-
-const Circle2 = styled(DecorativeCircle)`
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, ${props => props.color}15 0%, ${props => props.color}00 70%);
-  top: 600px;
-  left: -80px;
-
-  @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
-    left: -60px;
-  }
-`;
-
-const Circle3 = styled(DecorativeCircle)`
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, ${props => props.color}18 0%, ${props => props.color}00 70%);
-  bottom: 200px;
-  right: -120px;
-
-  @media (max-width: 768px) {
-    width: 220px;
-    height: 220px;
-  }
-`;
-
-const DescriptionSection = styled.div`
-  padding: 40px;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    padding: 24px;
-  }
-`;
-
 const QuoteBlock = styled.blockquote`
-  background: white;
-  border-left: 6px solid ${props => props.accentColor || '#98D8C8'};
-  border-radius: 16px;
-  padding: 40px;
-  margin: 0;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px;
+  font-size: 24px;
   font-style: italic;
-  color: #2c3e50;
+  color: white;
   line-height: 1.8;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative;
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  }
+  margin: 0 0 48px 0;
+  padding-left: 32px;
+  border-left: 6px solid ${props => props.accentColor};
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    padding: 32px;
-    font-size: 18px;
+    font-size: 20px;
+    padding-left: 24px;
+    border-left-width: 4px;
   }
 `;
 
-const InfoSection = styled.div`
-  padding: 40px 40px 80px 40px;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    padding: 24px 24px 60px 24px;
-  }
-`;
-
-const SectionTitle = styled.h3`
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: ${props => props.accentColor || '#1a1a1a'};
-  margin: 0 0 24px 0;
-
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
-`;
-
-const InfoGrid = styled.div`
-  display: grid;
+const InfoList = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  margin-bottom: 48px;
 `;
 
 const InfoItem = styled.div`
-  background: white;
-  padding: 24px 28px;
-  border-radius: 12px;
   font-family: 'Inter', sans-serif;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  }
 
   strong {
     display: block;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-    color: ${props => props.accentColor || '#666'};
+    color: ${props => props.accentColor};
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
   }
 
   span {
-    font-size: 16px;
-    color: #2c3e50;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.95);
     line-height: 1.6;
   }
 
   @media (max-width: 768px) {
-    padding: 20px 24px;
-
     span {
-      font-size: 15px;
+      font-size: 16px;
     }
   }
 `;
 
-const QuizCTASection = styled.div`
-  padding: 40px;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
-  position: relative;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    padding: 24px;
-    margin: 0 auto 24px auto;
-  }
-`;
-
-const QuizCTACard = styled.div`
-  background: linear-gradient(135deg, ${props => props.accentColor}15 0%, ${props => props.accentColor}08 100%);
-  border: 2px solid ${props => props.accentColor};
-  border-radius: 16px;
+const QuizSection = styled.div`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
   padding: 48px;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, ${props => props.accentColor}20 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  }
+  border: 3px solid ${props => props.accentColor};
+  margin: 48px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
     padding: 36px 24px;
@@ -437,43 +352,41 @@ const QuizCTACard = styled.div`
 `;
 
 const QuizIcon = styled.div`
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: ${props => props.accentColor};
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 24px;
-  box-shadow: 0 8px 24px ${props => props.accentColor}40;
+  box-shadow: 0 8px 24px ${props => props.accentColor}60;
 
   @media (max-width: 768px) {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
   }
 `;
 
 const QuizHeading = styled.h3`
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: white;
   margin: 0 0 16px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    font-size: 26px;
+    font-size: 28px;
   }
 `;
 
 const QuizDescription = styled.p`
   font-family: 'Inter', sans-serif;
   font-size: 18px;
-  color: #4a5568;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   margin: 0 0 32px 0;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -485,20 +398,20 @@ const QuizButton = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 32px;
+  padding: 16px 36px;
   background: ${props => props.accentColor};
-  color: white;
+  color: #4a3a2a;
   text-decoration: none;
   border-radius: 12px;
   font-family: 'Inter', sans-serif;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px ${props => props.accentColor}40;
+  box-shadow: 0 4px 16px ${props => props.accentColor}60;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px ${props => props.accentColor}60;
+    box-shadow: 0 6px 20px ${props => props.accentColor}80;
   }
 
   &:active {
@@ -517,32 +430,32 @@ const ReferencesList = styled.ul`
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 `;
 
 const ReferenceItem = styled.li`
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: #2c3e50;
-  line-height: 1.6;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.7;
   position: relative;
-  padding-left: 32px;
+  padding-left: 36px;
 
   &::before {
     content: '${props => props.number}.';
     position: absolute;
     left: 0;
-    font-weight: 600;
+    font-weight: 700;
     color: ${props => props.accentColor};
-    font-size: 16px;
+    font-size: 18px;
   }
 
   @media (max-width: 768px) {
-    font-size: 15px;
-    padding-left: 28px;
+    font-size: 16px;
+    padding-left: 32px;
 
     &::before {
-      font-size: 15px;
+      font-size: 16px;
     }
   }
 `;
@@ -557,13 +470,18 @@ function EpisodeDetailPage() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [episodeId]);
+
   if (!episode) {
     return (
       <PageContainer>
         <Header />
-        <HeroBanner>
+        <ContentContainer>
           <EpisodeTitle>Episode Not Found</EpisodeTitle>
-        </HeroBanner>
+        </ContentContainer>
       </PageContainer>
     );
   }
@@ -611,23 +529,59 @@ function EpisodeDetailPage() {
   return (
     <PageContainer>
       <Header />
-      <Circle1 color={accentColor} />
-      <Circle2 color={accentColor} />
-      <Circle3 color={accentColor} />
 
-      <HeroBanner>
-        <EpisodeTitle>{episode.title}</EpisodeTitle>
-      </HeroBanner>
-
-      <EpisodeImage
-        src={process.env.PUBLIC_URL + '/podcast.jpg'}
-        alt={episode.title}
+      {/* Geometric Shapes */}
+      <Hexagon
+        color={accentColor}
+        size="220px"
+        mobileSize="130px"
+        position="top: 150px; right: 5%;"
+      />
+      <Diamond
+        color={accentColor}
+        size="200px"
+        mobileSize="110px"
+        position="top: 450px; left: -50px;"
+      />
+      <Parallelogram
+        color={accentColor}
+        width="280px"
+        height="180px"
+        mobileWidth="160px"
+        mobileHeight="100px"
+        position="top: 800px; right: -60px;"
+      />
+      <Hexagon
+        color={accentColor}
+        size="180px"
+        mobileSize="100px"
+        position="top: 1200px; left: 8%;"
+      />
+      <Diamond
+        color={accentColor}
+        size="160px"
+        mobileSize="90px"
+        position="bottom: 400px; right: 10%;"
+      />
+      <Parallelogram
+        color={accentColor}
+        width="240px"
+        height="150px"
+        mobileWidth="140px"
+        mobileHeight="80px"
+        position="bottom: 100px; left: 5%;"
       />
 
-      <ContentWrapper>
-        <AudioPlayerSection>
-        <PlayerTitle accentColor={accentColor}>Listen Now</PlayerTitle>
-        <CustomAudioPlayer>
+      <ContentContainer>
+        <EpisodeTitle>{episode.title}</EpisodeTitle>
+
+        <EpisodeImage
+          src={process.env.PUBLIC_URL + '/podcast.jpg'}
+          alt={episode.title}
+        />
+
+        <SectionTitle>Listen Now</SectionTitle>
+        <AudioPlayerContainer accentColor={accentColor}>
           <PlayerControls>
             <PlayPauseButton onClick={togglePlayPause} accentColor={accentColor}>
               {isPlaying ? (
@@ -658,70 +612,65 @@ function EpisodeDetailPage() {
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
             onEnded={() => setIsPlaying(false)}
+            preload="metadata"
+            src={process.env.PUBLIC_URL + '/Dennis Reynolds - Two wars_!.mp3'}
           >
-            <source src="" type="audio/mpeg" />
             Your browser does not support the audio element.
           </HiddenAudio>
-        </CustomAudioPlayer>
-      </AudioPlayerSection>
+        </AudioPlayerContainer>
 
-      <DescriptionSection>
         <QuoteBlock accentColor={accentColor}>
           {episode.description}
         </QuoteBlock>
-      </DescriptionSection>
 
-      <InfoSection>
-        <SectionTitle accentColor={accentColor}>Episode Credits</SectionTitle>
-        <InfoGrid>
+        <SectionTitle>Episode Credits</SectionTitle>
+        <InfoList>
           <InfoItem accentColor={accentColor}>
             <strong>Host</strong>
             <span>{episode.host}</span>
           </InfoItem>
           <InfoItem accentColor={accentColor}>
-            <strong>Guest</strong>
+            <strong>{"Guest(s)"}</strong>
             <span>{episode.guest}</span>
           </InfoItem>
           <InfoItem accentColor={accentColor}>
             <strong>Production Credits</strong>
             <span>{episode.credits}</span>
           </InfoItem>
-        </InfoGrid>
-      </InfoSection>
+        </InfoList>
 
-      <QuizCTASection>
-        <QuizCTACard accentColor={accentColor}>
+        <QuizSection accentColor={accentColor}>
           <QuizIcon accentColor={accentColor}>
-            <GameController size={36} weight="bold" color="white" />
+            <GameController size={40} weight="bold" color="#4a3a2a" />
           </QuizIcon>
           <QuizHeading>Want to test your knowledge?</QuizHeading>
           <QuizDescription>
-            Challenge yourself with our interactive quiz! Test what you've learned from this episode and see how well you understand the key concepts.
+            Challenge yourself with our interactive quiz! Test what you've learned from this episode.
           </QuizDescription>
           <QuizButton to="/quiz/episode1" accentColor={accentColor}>
             Try the Quiz
             <ArrowRight size={20} weight="bold" />
           </QuizButton>
-        </QuizCTACard>
-      </QuizCTASection>
+        </QuizSection>
 
-      {episode.references && episode.references.length > 0 && (
-        <InfoSection>
-          <SectionTitle accentColor={accentColor}>References</SectionTitle>
-          <ReferencesList>
-            {episode.references.map((reference, index) => (
-              <ReferenceItem
-                key={index}
-                accentColor={accentColor}
-                number={index + 1}
-              >
-                {reference}
-              </ReferenceItem>
-            ))}
-          </ReferencesList>
-        </InfoSection>
-      )}
-      </ContentWrapper>
+        {episode.references && episode.references.length > 0 && (
+          <>
+            <SectionTitle>References</SectionTitle>
+            <ReferencesList>
+              {episode.references.map((reference, index) => (
+                <ReferenceItem
+                  key={index}
+                  accentColor={accentColor}
+                  number={index + 1}
+                >
+                  {reference}
+                </ReferenceItem>
+              ))}
+            </ReferencesList>
+          </>
+        )}
+      </ContentContainer>
+
       <Footer />
     </PageContainer>
   );

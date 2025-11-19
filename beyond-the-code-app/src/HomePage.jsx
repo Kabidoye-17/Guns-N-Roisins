@@ -481,7 +481,7 @@ const ContentWrapper = styled.div`
 const AccentBar = styled.div`
   width: 120px;
   height: 6px;
-  background: linear-gradient(90deg, #fff79e 0%, #ACE8A5 25%, #9deaf2 50%, #FF87F1 75%, #a990f5 100%);
+  background: linear-gradient(90deg, #fff79e 0%, #C1FFBA 25%, #BAEFF5 50%, #ffbaf7 75%, #a990f5 100%);
   border-radius: 3px;
   margin: 0 auto 32px;
   position: relative;

@@ -127,10 +127,10 @@ const PlayButton = styled(Link)`
 const accentColors = {
   purple: '#8d75e6',
   yellow: '#fff79e',
-  pink: '#FF87F1',
-  green: '#ACE8A5',
-  blue: '#9deaf2',
-  gold: '#F0A848',
+  pink: '#ffbaf7',
+  green: '#C1FFBA',
+  blue: '#BAEFF5',
+  gold: '#010000ff',
   teal: '#2dbf8c',
   coral: '#f47e3f',
   mint: '#98D8C8'
@@ -150,7 +150,7 @@ function EpisodeCard({ image, title, duration, host, guest, description, episode
           </Duration>
         </TitleRow>
         <Info><strong>Host:</strong> {host}</Info>
-        <Info><strong>Guest:</strong> {guest}</Info>
+        <Info><strong>{"Guest(s)"}:</strong> {guest}</Info>
         <Description>"{description}"</Description>
         <PlayButton to={`/episode/${episodeId}`} accentColor={accentColor}>
           <Headphones size={24} weight="fill" />

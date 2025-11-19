@@ -1,59 +1,46 @@
 [
   {
     "image": "",
-    "title": "Episode 1",
-    "duration": "09:40",
-    "host": "Host Name",
-    "guest": "Guest Name 1",
-    "description": "Short Description of what is being discussed in episode 1",
+    "title": "Ethics",
+    "duration": "TBD",
+    "host": "Ellice Nelson",
+    "guest": "Dara Heaphy",
+    "description": "Ethics blah blah",
     "colorTheme": "yellow",
-    "credits": "Producer Name, Editor Name, Sound Engineer Name",
-    "references": [
-      "Reference link or citation 1",
-      "Reference link or citation 2",
-      "Reference link or citation 3"
-    ]
+    "credits": "Darragh Luby, Naem Haq, Mia Borko",
+    "references": []
   },
   {
     "image": "",
-    "title": "Episode 2",
-    "duration": "12:15",
-    "host": "Host Name",
-    "guest": "Guest Name 2",
-    "description": "Short Description of what is being discussed in episode 2",
+    "title": "Economics",
+    "duration": "TBD",
+    "host": "Ellice Nelson",
+    "guest": "Ushen Wijayaratne",
+    "description": "Economics blah blah",
     "colorTheme": "pink",
-    "credits": "Producer Name, Editor Name, Sound Engineer Name",
-    "references": [
-      "Reference link or citation 1",
-      "Reference link or citation 2"
-    ]
+    "credits": "Daniel Moody, Justyna Przyborska",
+    "references": []
   },
   {
     "image": "",
-    "title": "Episode 3",
-    "duration": "08:30",
-    "host": "Host Name",
-    "guest": "Guest Name 3",
-    "description": "Short Description of what is being discussed in episode 3",
+    "title": "Legal",
+    "duration": "TBD",
+    "host": "Ellice Nelson",
+    "guest": "Violet Browne",
+    "description": "Legal blah blah",
     "colorTheme": "green",
-    "credits": "Producer Name, Editor Name, Sound Engineer Name",
-    "references": [
-      "Reference link or citation 1",
-      "Reference link or citation 2"
-    ]
+    "credits": "Ruan O' Dowd, Michelle Vaz",
+    "references": []
   },
   {
     "image": "",
-    "title": "Episode 4",
-    "duration": "11:05",
-    "host": "Host Name",
-    "guest": "Guest Name 4",
-    "description": "Short Description of what is being discussed in episode 4",
+    "title": "Contracts and Founders",
+    "duration": "TBD",
+    "host": "Ellice Nelson",
+    "guest": "Alisia Kazimierek, JJ Olajitan",
+    "description": "Contracts and Founders blah blah",
     "colorTheme": "blue",
-    "credits": "Producer Name, Editor Name, Sound Engineer Name",
-    "references": [
-      "Reference link or citation 1",
-      "Reference link or citation 2"
-    ]
+    "credits": "Dawid Jakubowski, Nandakishore Vinayakrishnan",
+    "references": []
   }
 ]
