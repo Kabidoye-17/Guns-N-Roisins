@@ -5,7 +5,14 @@
     "duration": "09:40",
     "host": "Host Name",
     "guest": "Guest Name 1",
-    "description": "Short Description of what is being discussed in episode 1"
+    "description": "Short Description of what is being discussed in episode 1",
+    "colorTheme": "yellow",
+    "credits": "Producer Name, Editor Name, Sound Engineer Name",
+    "references": [
+      "Reference link or citation 1",
+      "Reference link or citation 2",
+      "Reference link or citation 3"
+    ]
   },
   {
     "image": "",
@@ -13,7 +20,13 @@
     "duration": "12:15",
     "host": "Host Name",
     "guest": "Guest Name 2",
-    "description": "Short Description of what is being discussed in episode 2"
+    "description": "Short Description of what is being discussed in episode 2",
+    "colorTheme": "pink",
+    "credits": "Producer Name, Editor Name, Sound Engineer Name",
+    "references": [
+      "Reference link or citation 1",
+      "Reference link or citation 2"
+    ]
   },
   {
     "image": "",
@@ -21,7 +34,13 @@
     "duration": "08:30",
     "host": "Host Name",
     "guest": "Guest Name 3",
-    "description": "Short Description of what is being discussed in episode 3"
+    "description": "Short Description of what is being discussed in episode 3",
+    "colorTheme": "green",
+    "credits": "Producer Name, Editor Name, Sound Engineer Name",
+    "references": [
+      "Reference link or citation 1",
+      "Reference link or citation 2"
+    ]
   },
   {
     "image": "",
@@ -29,6 +48,12 @@
     "duration": "11:05",
     "host": "Host Name",
     "guest": "Guest Name 4",
-    "description": "Short Description of what is being discussed in episode 4"
+    "description": "Short Description of what is being discussed in episode 4",
+    "colorTheme": "blue",
+    "credits": "Producer Name, Editor Name, Sound Engineer Name",
+    "references": [
+      "Reference link or citation 1",
+      "Reference link or citation 2"
+    ]
   }
 ]

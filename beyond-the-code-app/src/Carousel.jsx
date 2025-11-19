@@ -122,7 +122,7 @@ function Carousel({ episodes }) {
           <CarouselContent currentIndex={currentIndex}>
             {episodes.map((episode, index) => (
               <CarouselItem key={index}>
-                <EpisodeCard {...episode} />
+                <EpisodeCard {...episode} episodeId={index + 1} />
               </CarouselItem>
             ))}
           </CarouselContent>

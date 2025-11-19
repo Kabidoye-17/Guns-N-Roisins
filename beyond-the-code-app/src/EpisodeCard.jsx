@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Headphones } from '@phosphor-icons/react';
 
 const Card = styled.div`
@@ -94,7 +95,7 @@ const Description = styled.p`
   line-height: 1.5;
 `;
 
-const PlayButton = styled.button`
+const PlayButton = styled(Link)`
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -108,6 +109,7 @@ const PlayButton = styled.button`
   justify-content: center;
   align-items: center;
   color: white;
+  text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
@@ -122,23 +124,35 @@ const PlayButton = styled.button`
   }
 `;
 
-const ACCENT_COLOR = '#ee86b7';
+const accentColors = {
+  purple: '#8d75e6',
+  yellow: '#fff79e',
+  pink: '#FF87F1',
+  green: '#ACE8A5',
+  blue: '#9deaf2',
+  gold: '#F0A848',
+  teal: '#2dbf8c',
+  coral: '#f47e3f',
+  mint: '#98D8C8'
+};
 
-function EpisodeCard({ image, title, duration, host, guest, description }) {
+function EpisodeCard({ image, title, duration, host, guest, description, episodeId, colorTheme = 'pink' }) {
+  const accentColor = accentColors[colorTheme] || accentColors.pink;
+
   return (
-    <Card accentColor={ACCENT_COLOR}>
+    <Card accentColor={accentColor}>
         <Image src={process.env.PUBLIC_URL + '/podcast.jpg'} alt={title} />
       <Content>
         <TitleRow>
           <Title>{title}</Title>
-          <Duration accentColor={ACCENT_COLOR}>
+          <Duration accentColor={accentColor}>
             {duration}
           </Duration>
         </TitleRow>
         <Info><strong>Host:</strong> {host}</Info>
         <Info><strong>Guest:</strong> {guest}</Info>
         <Description>"{description}"</Description>
-        <PlayButton accentColor={ACCENT_COLOR}>
+        <PlayButton to={`/episode/${episodeId}`} accentColor={accentColor}>
           <Headphones size={24} weight="fill" />
         </PlayButton>
       </Content>
