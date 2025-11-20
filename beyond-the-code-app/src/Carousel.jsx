@@ -73,6 +73,8 @@ const Dot = styled.button`
   height: 9px;
   border-radius: 50%;
   border: none;
+  padding: 0;
+  flex-shrink: 0;
   background-color: ${props => props.active ? 'black' : '#ddd'};
   cursor: pointer;
   transition: all 0.3s;
