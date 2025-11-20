@@ -576,7 +576,7 @@ function EpisodeDetailPage() {
         <EpisodeTitle>{episode.title}</EpisodeTitle>
 
         <EpisodeImage
-          src={process.env.PUBLIC_URL + '/podcast.jpg'}
+          src={process.env.PUBLIC_URL + (episode.image || '/podcast.jpg')}
           alt={episode.title}
         />
 

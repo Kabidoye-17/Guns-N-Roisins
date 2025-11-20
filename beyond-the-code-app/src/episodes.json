@@ -1,10 +1,10 @@
 [
   {
-    "image": "",
+    "image": "/podcast.jpg",
     "title": "Ethics",
     "duration": "TBD",
     "host": "Ellice Nelson",
-    "guest": "Dara Heaphy",
+    "guest": "Dr Cian O'Reilly",
     "description": "Ethics blah blah",
     "colorTheme": "yellow",
     "credits": "Darragh Luby, Naem Haq, Mia Borko",
@@ -15,7 +15,7 @@
       "howToPlay":{
         "steps": [
           "Read each scenario carefully",
-          "Choose the option that aligns best with your values",
+          "Choose the option that results in the most ethical outcome",
           "Receive feedback on your choice and see how others responded",
           "If you less people agree with your choice, you are not wrong but the other option is preferable in that situation"
         ]
@@ -148,12 +148,12 @@
             {
               "text": "Switch to the SSPL license to force payment",
               "feedback": "YES! We hate big tech – they should pay! Unfortunately, this might reduce adoption and does not truly qualify as FOSS according to the Open Source Initiative (OSI) (65% agree)",
-              "correct": null
+              "correct": true
             },
             {
               "text": "Keep it MIT, and maintain the true FOSS spirit",
               "feedback": "You're a true FOSS OG, even if that means letting companies profit off your work without contribution 😒 (35% agree)",
-              "correct": null
+              "correct": false
             }
           ]
         },
@@ -165,12 +165,12 @@
             {
               "text": "Add ethical use restrictions to the license",
               "feedback": "Attempting to steer usage away from harmful applications is admirable and righteous, but it technically goes against standard FOSS principles. It's definitely a grey area! (62% agree)",
-              "correct": null
+              "correct": true
             },
             {
               "text": "Keep it truly open source, it's not your responsibility",
               "feedback": "You're sticking to open-source philosophy, but you have no control over how people will use your software (38% agree)",
-              "correct": null
+              "correct": false
             }
           ]
         },
@@ -195,7 +195,7 @@
     }
   },
   {
-    "image": "",
+    "image": "/Economics.jpg",
     "title": "Economics",
     "duration": "TBD",
     "host": "Ellice Nelson",
@@ -206,7 +206,7 @@
     "references": []
   },
   {
-    "image": "",
+    "image": "/podcast.jpg",
     "title": "Legal",
     "duration": "TBD",
     "host": "Ellice Nelson",
@@ -217,7 +217,7 @@
     "references": []
   },
   {
-    "image": "",
+    "image": "/podcast.jpg",
     "title": "Contracts and Founders",
     "duration": "TBD",
     "host": "Ellice Nelson",

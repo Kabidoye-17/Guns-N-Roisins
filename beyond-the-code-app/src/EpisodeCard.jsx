@@ -141,7 +141,13 @@ function EpisodeCard({ image, title, duration, host, guest, description, episode
 
   return (
     <Card accentColor={accentColor}>
-        <Image src={process.env.PUBLIC_URL + '/podcast.jpg'} alt={title} />
+      {image ? (
+        <Image src={process.env.PUBLIC_URL + image} alt={title} />
+      ) : (
+        <ImagePlaceholder accentColor={accentColor}>
+          <Headphones size={48} weight="duotone" />
+        </ImagePlaceholder>
+      )}
       <Content>
         <TitleRow>
           <Title>{title}</Title>

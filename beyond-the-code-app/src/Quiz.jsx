@@ -30,7 +30,7 @@ const QuestionCard = styled(Card)`
 
 const QuestionHeading = styled(Heading)`
   white-space: pre-line;
-  font-size: 16px;
+  font-size: 1px;
   line-height: 1.5;
 
   @media (max-width: 768px) {
