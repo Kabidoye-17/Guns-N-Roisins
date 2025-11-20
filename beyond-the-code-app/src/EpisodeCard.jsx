@@ -3,32 +3,32 @@ import { Link } from 'react-router-dom';
 import { Headphones } from '@phosphor-icons/react';
 
 const Card = styled.div`
-  width: 320px;
+  width: 240px;
   background-color: white;
-  border-radius: 11px;
+  border-radius: 8px;
   border: 1px solid #e0e0e0;
-  border-top: 4px solid ${props => props.accentColor || '#8d75e6'};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-top: 3px solid ${props => props.accentColor || '#8d75e6'};
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
     border-color: #d0d0d0;
   }
 `;
 
 const ImagePlaceholder = styled.div`
   width: 100%;
-  height: 300px;
+  height: 225px;
   background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   color: ${props => props.accentColor || '#8d75e6'};
-  font-size: 15px;
+  font-size: 11px;
   font-weight: 600;
   position: relative;
   overflow: hidden;
@@ -36,13 +36,13 @@ const ImagePlaceholder = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 300px;
+  height: 225px;
   object-fit: cover;
 `;
 
 const Content = styled.div`
-  padding: 24px;
-  padding-bottom: 70px;
+  padding: 18px;
+  padding-bottom: 52px;
   position: relative;
 `;
 
@@ -50,13 +50,13 @@ const TitleRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 12px;
-  gap: 12px;
+  margin-bottom: 9px;
+  gap: 9px;
 `;
 
 const Title = styled.h2`
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
   margin: 0;
   color: #1a1a1a;
@@ -66,18 +66,18 @@ const Title = styled.h2`
 `;
 
 const Duration = styled.span`
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 600;
   color: white;
   background: ${props => props.accentColor || '#8d75e6'};
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 4px 9px;
+  border-radius: 5px;
   white-space: nowrap;
 `;
 
 const Info = styled.p`
-  font-size: 14px;
-  margin: 6px 0;
+  font-size: 11px;
+  margin: 5px 0;
   color: #666;
   font-weight: 500;
 
@@ -88,19 +88,19 @@ const Info = styled.p`
 `;
 
 const Description = styled.p`
-  font-size: 14px;
+  font-size: 11px;
   color: #888;
-  margin: 12px 0 0 0;
+  margin: 9px 0 0 0;
   font-style: italic;
   line-height: 1.5;
 `;
 
 const PlayButton = styled(Link)`
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
+  bottom: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: ${props => props.accentColor || '#8d75e6'};
   border: none;
@@ -111,11 +111,11 @@ const PlayButton = styled(Link)`
   color: white;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
 
   &:hover {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
     filter: brightness(1.1);
   }
 

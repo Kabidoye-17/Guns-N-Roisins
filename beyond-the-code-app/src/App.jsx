@@ -8,7 +8,7 @@ function App() {
     <Router basename="/Guns-N-Roisins">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/quiz/episode1" element={<Episode1QuizPage />} />
+        <Route path="/quiz/episode/:episodeId" element={<Episode1QuizPage />} />
         <Route path="/episode/:episodeId" element={<EpisodeDetailPage />} />
       </Routes>
     </Router>

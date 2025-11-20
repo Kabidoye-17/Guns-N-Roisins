@@ -8,7 +8,191 @@
     "description": "Ethics blah blah",
     "colorTheme": "yellow",
     "credits": "Darragh Luby, Naem Haq, Mia Borko",
-    "references": []
+    "references": [],
+    "gameContent": {
+      "type": "ethical-dilemmas",
+      "about": "Test your ethical decision-making with real-world scenarios",
+      "howToPlay":{
+        "steps": [
+          "Read each scenario carefully",
+          "Choose the option that aligns best with your values",
+          "Receive feedback on your choice and see how others responded",
+          "If you less people agree with your choice, you are not wrong but the other option is preferable in that situation"
+        ]
+      },
+      "scenarios": [
+        {
+          "id": 1,
+          "title": "The Resume Parser (AI bias) \n",
+          "description": "Your startup's AI resume screener works great, but you discover it's 40% less likely to advance resumes with non-Western names. The fix would delay launch by 3 months.",
+          "options": [
+            {
+              "text": "Ship now with a disclaimer about potential bias",
+              "feedback": "You can launch faster, but this option carries significant legal/PR risks because the bias still affects applicants (53% agree)",
+              "correct": false
+            },
+            {
+              "text": "Delay and fix the bias issue first",
+              "feedback": "Good choice! While this option results in a delayed launch, you avoid discrimination fallout and ship something defensible and ethical (47% agree)",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "The Engagement Feature (Engagement vs. Fairness)\n",
+          "description": "The product team wants you to implement 'streak notifications' to encourage users to continue using the app when they break their usage streak (like Duolingo).",
+          "options": [
+            {
+              "text": "Refuse and propose time-limit features instead",
+              "feedback": "You might lose easy engagement benefits, but you're being considerate and virtuous! It's always better to protect users through non-manipulative engagement features rather than exploiting their loss aversion (62% agree)",
+              "correct": true
+            },
+            {
+              "text": "Implement with an easy opt-out buried in settings",
+              "feedback": "This will definitely boost engagement, but it's quite manipulative; hiding the opt-out option is a snaky move 🐍 (38% agree)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "The Nudge (Sales/Engagement vs. Transparency)\n",
+          "description": "Your food delivery app can either show restaurant fees upfront (reducing orders by 20%) or reveal them at checkout.",
+          "options": [
+            {
+              "text": "Hide until checkout because it's an industry standard",
+              "feedback": "This will likely lead to more orders being placed (people don't want to delete the order they spent so much time creating), and it follows industry norms, but it's misleading, and I know you'd prefer to know upfront (45% agree)",
+              "correct": false
+            },
+            {
+              "text": "Show upfront for transparency",
+              "feedback": "Even if orders drop slightly, prioritising trust and transparency is always better! Users appreciate this and might even lead to greater adoption via good reviews (55% agree)",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "The Cookie Banner (UX Dark Patterns)\n",
+          "description": "The legal team has approved your European cookie consent banner, which makes 'Accept All' a big green button, while 'Reject' requires three clicks through nested menus.",
+          "options": [
+            {
+              "text": "Ship it, it's legal!",
+              "feedback": "Yes, it's legal, but it's a dark pattern and obviously nudges people into accepting (you deviant). Always consider how these things would impact YOU instead of turning a blind eye (58% agree)",
+              "correct": false
+            },
+            {
+              "text": "Make both options equally accessible",
+              "feedback": "Wise decision! You might lose ad revenue and analytical insights, but this approach allows you to be genuine and transparent. It's always important to prioritise your users' preferences and privacy concerns (42% agree)",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "The Metrics Game (Engagement vs. Safety)\n",
+          "description": "Your recommendation algorithm maximises 'time on platform' perfectly, but you notice it consistently surfaces rage-bait and conspiracy content.",
+          "options": [
+            {
+              "text": "Retrain for 'quality interactions' even if engagement drops",
+              "feedback": "You sacrifice that easy engagement win, but reducing harm and maintaining better quality content is the right choice (in our opinion) (67% agree)",
+              "correct": true
+            },
+            {
+              "text": "Keep it! Engagement metrics are up 40% 😎",
+              "feedback": "Everyone wants better engagement, which is understandable, but it also spreads harmful content and overlooks user safety (33% agree)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "The Accessibility Dilemma (Accessibility – Inclusivity vs. Effort) \n",
+          "description": "Your banking app works perfectly fine for the vast majority of users, but screen readers can't parse the custom UI components. Fixing it means rebuilding 30% of the frontend. Only 0.3% of users need screen readers.",
+          "options": [
+            {
+              "text": "Rebuild the components to be fully accessible",
+              "feedback": "Making the interface fully accessible means you value all of your users equally. It might cost more or take a bit longer, but it's essential to be inclusive and supportive (46% agree)",
+              "correct": true
+            },
+            {
+              "text": "Add a basic text-only version for accessibility",
+              "feedback": "This is cheaper and is easy to implement. While it covers basic functionality, it's reducing the quality of your app for a small subset of users and isn't true accessibility (54% agree)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "The License Violation (Intellectual Property – Licensing)\n",
+          "description": "You find perfect GPL-licensed code for a critical feature, but your company refuses to open-source their product (as per the license). Your manager says, 'Just change variable names'.",
+          "options": [
+            {
+              "text": "Write custom equivalent code from scratch (pushes feature release by 3 days)",
+              "feedback": "Your feature might take a little longer to ship, but this choice keeps you out of trouble and avoids legal consequences (59% agree)",
+              "correct": true
+            },
+            {
+              "text": "Use it! Nobody will know",
+              "feedback": "You ship the important feature quickly, but this is a clear GPL violation and has a huge legal risk. Renaming variables might make it less obvious, but it's always better to be safe and comply with software licenses! (41% agree)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "The FOSS Maintainer (FOSS vs. 🤑)\n",
+          "description": "AWS is making millions from your open-source database while you work weekends to fix bugs for free.",
+          "options": [
+            {
+              "text": "Switch to the SSPL license to force payment",
+              "feedback": "YES! We hate big tech – they should pay! Unfortunately, this might reduce adoption and does not truly qualify as FOSS according to the Open Source Initiative (OSI) (65% agree)",
+              "correct": null
+            },
+            {
+              "text": "Keep it MIT, and maintain the true FOSS spirit",
+              "feedback": "You're a true FOSS OG, even if that means letting companies profit off your work without contribution 😒 (35% agree)",
+              "correct": null
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "The Dependency (FOSS Ethics)\n",
+          "description": "A popular FOSS library you maintain is being used by defence contractors for drone targeting systems.",
+          "options": [
+            {
+              "text": "Add ethical use restrictions to the license",
+              "feedback": "Attempting to steer usage away from harmful applications is admirable and righteous, but it technically goes against standard FOSS principles. It's definitely a grey area! (62% agree)",
+              "correct": null
+            },
+            {
+              "text": "Keep it truly open source, it's not your responsibility",
+              "feedback": "You're sticking to open-source philosophy, but you have no control over how people will use your software (38% agree)",
+              "correct": null
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "The Whistleblower (Unethical / Illegal Industry Practices)",
+          "description": "You discover your encrypted messaging app has a government backdoor. Your manager says, 'Don't tell anyone, we need this under wraps.' Revealing it would violate your NDA and potentially lead to your termination.",
+          "options": [
+            {
+              "text": "Stay quiet and do what your manager says",
+              "feedback": "You're protecting your job and following your manager's orders, but you are still leaving users exposed and ignoring your manager's unethical behaviour! (41% agree)",
+              "correct": false
+            },
+            {
+              "text": "Go against your manager and report internally through proper channels",
+              "feedback": "We think this is the right move. By formally reporting the issue and raising your manager's misconduct, you avoid legal risk, but you may still face retaliation (48% agree)",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "image": "",

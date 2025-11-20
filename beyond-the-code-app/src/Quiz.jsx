@@ -28,23 +28,36 @@ const QuestionCard = styled(Card)`
   background: ${theme.white};
 `;
 
+const QuestionHeading = styled(Heading)`
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.5;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
 const OptionsContainer = styled(GridContainer)`
   grid-template-columns: ${props => props.optionCount === 2 ? 'repeat(2, 1fr)' : 'repeat(2, 1fr)'};
   grid-template-rows: ${props => props.optionCount === 4 ? 'repeat(2, 1fr)' : 'auto'};
-  gap: 16px;
+  gap: 12px;
 `;
 
-const OptionBox = styled(InteractiveBox).attrs(props => ({
-  borderColor: props.selected && !props.showResult ? theme.gold :
+const OptionBox = styled(InteractiveBox)`
+  font-weight: 400;
+  border-color: ${props =>
+    props.selected && !props.showResult ? props.accentColor || theme.gold :
     props.showResult && props.correct ? theme.success :
     props.showResult && props.selected && !props.correct ? theme.coral :
-    theme.border,
-  bgColor: props.selected && !props.showResult ? 'rgba(240, 168, 72, 0.08)' :
+    theme.border
+  };
+  background: ${props =>
+    props.selected && !props.showResult ? `${props.accentColor}20` :
     props.showResult && props.correct ? 'rgba(45, 191, 140, 0.08)' :
     props.showResult && props.selected && !props.correct ? 'rgba(244, 126, 63, 0.08)' :
     theme.white
-}))`
-  font-weight: 400;
+  };
 `;
 
 const ScoreCard = styled(Card)`
@@ -53,42 +66,42 @@ const ScoreCard = styled(Card)`
 `;
 
 const ScoreValue = styled(StatValue)`
-  font-size: 56px;
+  font-size: 42px;
   color: ${props => props.percentage >= 70 ? theme.success : props.percentage >= 50 ? theme.gold : theme.coral};
-  margin: 24px 0;
+  margin: 18px 0;
 
   @media (max-width: 768px) {
-    font-size: 48px;
+    font-size: 36px;
   }
 `;
 
 const ScoreMessage = styled.p`
   color: ${theme.textMedium};
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.6;
-  margin: 16px 0 32px 0;
+  margin: 12px 0 24px 0;
 
   @media (max-width: 768px) {
-    font-size: 15px;
+    font-size: 11px;
   }
 `;
 
 const ScoreBreakdown = styled.div`
   display: flex;
   justify-content: center;
-  gap: 32px;
-  margin: 24px 0;
-  padding: 20px;
+  gap: 24px;
+  margin: 18px 0;
+  padding: 15px;
   background: ${theme.backgroundLavender};
-  border-radius: 9px;
+  border-radius: 7px;
 
   @media (max-width: 768px) {
-    gap: 20px;
+    gap: 15px;
     flex-direction: column;
   }
 `;
 
-function Quiz({ quizData, onComplete }) {
+function Quiz({ quizData, onComplete, accentColor = '#fff79e' }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [showResult, setShowResult] = useState(false);
@@ -176,11 +189,11 @@ function Quiz({ quizData, onComplete }) {
 
   return (
     <Container>
-      <QuestionCard padding="60px 48px" mobilePadding="40px 32px" minHeight="180px" radius="11px">
-        <Label uppercase marginBottom="20px">
+      <QuestionCard padding="24px 32px" mobilePadding="20px 20px" radius="11px">
+        <Label uppercase marginBottom="12px">
           Question {currentQuestion + 1} of {quizData.questions.length}
         </Label>
-        <Heading>{question.question}</Heading>
+        <QuestionHeading>{question.question}</QuestionHeading>
       </QuestionCard>
 
       <OptionsContainer optionCount={question.options.length}>
@@ -192,6 +205,7 @@ function Quiz({ quizData, onComplete }) {
             showResult={showResult}
             disabled={showResult}
             onClick={() => handleOptionSelect(index)}
+            accentColor={accentColor}
           >
             <CenteredText>{option.text}</CenteredText>
             {showResult && option.correct && <CheckCircle size={36} weight="fill" color={theme.success} />}
@@ -200,10 +214,19 @@ function Quiz({ quizData, onComplete }) {
         ))}
       </OptionsContainer>
 
-      {showResult && question.explanation && (
-        <InfoBox>
-          <strong>Explanation:</strong> {question.explanation}
-        </InfoBox>
+      {showResult && (
+        <>
+          {selectedOption !== null && question.options[selectedOption].feedback && (
+            <InfoBox>
+              <strong>Your choice:</strong> {question.options[selectedOption].feedback}
+            </InfoBox>
+          )}
+          {question.explanation && !question.options[selectedOption]?.feedback && (
+            <InfoBox>
+              <strong>Explanation:</strong> {question.explanation}
+            </InfoBox>
+          )}
+        </>
       )}
 
       <ButtonGroup>

@@ -8,34 +8,34 @@ const HeaderContainer = styled.header`
   left: 0;
   width: 100%;
   background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 50%, #ddd6fe 100%);
-  padding: 0 40px;
+  padding: 0 30px;
   box-sizing: border-box;
   z-index: 1000;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   @media (max-width: 768px) {
-    padding: 0 24px;
+    padding: 0 18px;
   }
 `;
 
 const HeaderContent = styled.div`
-  max-width: 1400px;
+  max-width: 1050px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 52px;
 
   @media (max-width: 768px) {
-    height: 60px;
+    height: 45px;
   }
 `;
 
 const Logo = styled(Link)`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 9px;
   text-decoration: none;
   color: white;
   transition: all 0.3s ease;
@@ -46,9 +46,9 @@ const Logo = styled(Link)`
 `;
 
 const LogoIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   display: flex;
@@ -56,19 +56,19 @@ const LogoIcon = styled.div`
   justify-content: center;
 
   @media (max-width: 768px) {
-    width: 36px;
-    height: 36px;
+    width: 27px;
+    height: 27px;
   }
 `;
 
 const LogoText = styled.div`
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.01em;
 
   @media (max-width: 768px) {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   @media (max-width: 480px) {
@@ -79,21 +79,21 @@ const LogoText = styled.div`
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 
   @media (max-width: 768px) {
-    gap: 20px;
+    gap: 15px;
   }
 `;
 
 const NavLink = styled(Link)`
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: white;
   text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
   transition: all 0.3s ease;
   position: relative;
   background: ${props => props.$isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent'};
@@ -119,8 +119,8 @@ const NavLink = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    font-size: 15px;
-    padding: 6px 12px;
+    font-size: 11px;
+    padding: 5px 9px;
   }
 
   @media (max-width: 480px) {

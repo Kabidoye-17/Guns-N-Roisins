@@ -9,22 +9,108 @@ const FullScreenContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #fef8f6;
+  background: #a990f5;
   box-sizing: border-box;
   overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 60px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+`;
+
+// Pentagon shape
+const Pentagon = styled.div`
+  position: absolute;
+  width: ${props => props.size || '150px'};
+  height: ${props => props.size || '150px'};
+  background: ${props => props.color};
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 1;
+  ${props => props.position}
+
+  @media (max-width: 768px) {
+    width: ${props => props.mobileSize || '90px'};
+    height: ${props => props.mobileSize || '90px'};
+  }
+`;
+
+// Star shape
+const Star = styled.div`
+  position: absolute;
+  width: ${props => props.size || '135px'};
+  height: ${props => props.size || '135px'};
+  background: ${props => props.color};
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+  ${props => props.position}
+
+  @media (max-width: 768px) {
+    width: ${props => props.mobileSize || '75px'};
+    height: ${props => props.mobileSize || '75px'};
+  }
+`;
+
+// Elongated rectangle
+const ElongatedRect = styled.div`
+  position: absolute;
+  width: ${props => props.width || '225px'};
+  height: ${props => props.height || '90px'};
+  background: ${props => props.color};
+  border-radius: 45px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+  transform: ${props => props.rotate || 'rotate(25deg)'};
+  ${props => props.position}
+
+  @media (max-width: 768px) {
+    width: ${props => props.mobileWidth || '135px'};
+    height: ${props => props.mobileHeight || '52px'};
+  }
 `;
 
 const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: white;
-  border-bottom: 3px solid #F0A848;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid ${props => props.accentColor || '#fff79e'};
+  position: relative;
+  z-index: 10;
+
   @media (max-width: 768px) {
-    padding: 16px 20px;
+    padding: 12px 15px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
 `;
 
@@ -32,33 +118,32 @@ const BackButton = styled(Link)`
   font-family: 'Inter', sans-serif;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background-color: #F0A848;
-  color: white;
+  gap: 6px;
+  padding: 8px 14px;
+  background: ${props => props.accentColor || '#fff79e'};
+  color: #4a3a2a;
   text-decoration: none;
-  border-radius: 9px;
-  font-size: 15px;
-  font-weight: 600;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
   transition: all 0.2s ease;
+  box-shadow: 0 3px 9px ${props => props.accentColor ? `${props.accentColor}40` : 'rgba(255, 247, 158, 0.4)'};
 
   &:hover {
-    background-color: #d89535;
-    border-color: #d89535;
-    color: white;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px ${props => props.accentColor ? `${props.accentColor}60` : 'rgba(255, 247, 158, 0.6)'};
   }
 
   @media (max-width: 768px) {
-    padding: 8px 14px;
-    font-size: 14px;
+    padding: 6px 11px;
+    font-size: 11px;
   }
 `;
 
 const TitleSection = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 9px;
 
   @media (max-width: 768px) {
     flex: 1 0 100%;
@@ -68,15 +153,16 @@ const TitleSection = styled.div`
 
 const Title = styled.h1`
   font-family: 'Playfair Display', Georgia, serif;
-  color: #32274b;
-  font-size: 24px;
+  color: white;
+  font-size: 21px;
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.01em;
   line-height: 1.3;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 
@@ -84,105 +170,106 @@ const FullscreenButton = styled.button`
   font-family: 'Inter', sans-serif;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background: #8d75e6;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
-  border: 1px solid #8d75e6;
-  border-radius: 9px;
-  font-size: 15px;
+  border: 2px solid ${props => props.accentColor || '#fff79e'};
+  border-radius: 7px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
 
   &:hover {
-    background: #d89535;
-    border-color: #d89535;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(240, 168, 72, 0.25);
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
-    padding: 8px 14px;
-    font-size: 14px;
+    padding: 6px 11px;
+    font-size: 11px;
   }
 `;
 
 const MainContent = styled.div`
   flex: 1;
   display: flex;
-  gap: 20px;
-  padding: 20px 40px 40px;
+  gap: 15px;
+  padding: 15px 30px 30px;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    padding: 15px 20px 20px;
+    padding: 11px 15px 15px;
   }
 `;
 
 const InfoPanel = styled.div`
-  width: 320px;
-  background-color: white;
-  border-radius: 11px;
-  border: 2px solid #F0A848;
-  box-shadow: 0 4px 12px rgba(240, 168, 72, 0.15);
-  padding: 28px;
+  width: 240px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  border: 2px solid ${props => props.accentColor ? `${props.accentColor}60` : 'rgba(255, 247, 158, 0.6)'};
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  padding: 21px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 21px;
 
   @media (max-width: 1024px) {
     width: 100%;
-    max-height: 300px;
+    max-height: 225px;
   }
 `;
 
 const InfoSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 11px;
 `;
 
 const SectionTitle = styled.h3`
   font-family: 'Inter', sans-serif;
-  color: #8d75e6;
-  font-size: 13px;
+  color: ${props => props.accentColor || '#fff79e'};
+  font-size: 10px;
   font-weight: 700;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 
   svg {
-    color: #8d75e6;
+    color: ${props => props.accentColor || '#fff79e'};
   }
 `;
 
 const SectionContent = styled.div`
   font-family: 'Inter', sans-serif;
-  color: #4d3e78;
-  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 11px;
   line-height: 1.6;
 `;
-
 
 const InstructionList = styled.ul`
   font-family: 'Inter', sans-serif;
   margin: 0;
-  padding-left: 20px;
+  padding-left: 15px;
 
   li {
-    margin-bottom: 10px;
-    color: #4d3e78;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.95);
     line-height: 1.6;
-    font-size: 15px;
+    font-size: 11px;
 
     &::marker {
-      color: #F0A848;
+      color: ${props => props.accentColor || '#fff79e'};
     }
   }
 `;
@@ -195,7 +282,9 @@ function EmbedPage({
   onQuizComplete,
   title = "Game",
   description = "Enjoy this interactive game!",
-  instructions = []
+  instructions = [],
+  accentColor = '#fff79e',
+  backLink = '/'
 }) {
   const gameContainerRef = useRef(null);
 
@@ -207,20 +296,54 @@ function EmbedPage({
     }
   };
 
-  // Determine game type automatically if not specified
   const determinedGameType = gameType || (embedUrl ? 'embed' : 'custom');
 
   return (
     <FullScreenContainer>
-      <TopBar>
-        <BackButton to="/">
+      {/* Geometric Shapes */}
+      <Pentagon
+        color={accentColor}
+        size="200px"
+        mobileSize="120px"
+        position="top: 100px; right: 8%;"
+      />
+      <Star
+        color={accentColor}
+        size="160px"
+        mobileSize="90px"
+        position="top: 350px; left: 5%;"
+      />
+      <ElongatedRect
+        color={accentColor}
+        width="320px"
+        height="140px"
+        mobileWidth="190px"
+        mobileHeight="80px"
+        rotate="rotate(35deg)"
+        position="bottom: 150px; right: -50px;"
+      />
+      <Pentagon
+        color={accentColor}
+        size="180px"
+        mobileSize="100px"
+        position="bottom: 80px; left: 10%;"
+      />
+      <Star
+        color={accentColor}
+        size="140px"
+        mobileSize="80px"
+        position="top: 200px; right: 15%;"
+      />
+
+      <TopBar accentColor={accentColor}>
+        <BackButton to={backLink} accentColor={accentColor}>
           <ArrowLeft size={18} weight="bold" />
           Back
         </BackButton>
         <TitleSection>
           <Title>{title}</Title>
         </TitleSection>
-        <FullscreenButton onClick={handleFullscreen}>
+        <FullscreenButton onClick={handleFullscreen} accentColor={accentColor}>
           <ArrowsOut size={18} weight="bold" />
           Fullscreen
         </FullscreenButton>
@@ -234,13 +357,14 @@ function EmbedPage({
           onQuizComplete={onQuizComplete}
           title={title}
           containerRef={gameContainerRef}
+          accentColor={accentColor}
         >
           {children}
         </GamePanel>
 
-        <InfoPanel>
+        <InfoPanel accentColor={accentColor}>
           <InfoSection>
-            <SectionTitle>
+            <SectionTitle accentColor={accentColor}>
               <Info size={20} weight="duotone" />
               About
             </SectionTitle>
@@ -249,8 +373,8 @@ function EmbedPage({
 
           {instructions.length > 0 && (
             <InfoSection>
-              <SectionTitle>How to Play</SectionTitle>
-              <InstructionList>
+              <SectionTitle accentColor={accentColor}>How to Play</SectionTitle>
+              <InstructionList accentColor={accentColor}>
                 {instructions.map((instruction, index) => (
                   <li key={index}>{instruction}</li>
                 ))}

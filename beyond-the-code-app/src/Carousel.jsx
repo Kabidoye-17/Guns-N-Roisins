@@ -6,7 +6,7 @@ import EpisodeCard from './EpisodeCard';
 const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 375px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,9 +36,9 @@ const NavButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  ${props => props.direction === 'left' ? 'left: -60px;' : 'right: -60px;'}
-  width: 50px;
-  height: 50px;
+  ${props => props.direction === 'left' ? 'left: -45px;' : 'right: -45px;'}
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background-color: white;
   border: 2px solid #ddd;
@@ -63,14 +63,14 @@ const NavButton = styled.button`
 
 const DotsContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 22px;
 `;
 
 const Dot = styled.button`
-  width: 12px;
-  height: 12px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   border: none;
   background-color: ${props => props.active ? 'black' : '#ddd'};

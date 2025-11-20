@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const FooterContainer = styled.footer`
   width: 100%;
   background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 50%, #ddd6fe 100%);
-  padding: 20px 40px;
+  padding: 15px 30px;
   box-sizing: border-box;
   position: relative;
   z-index: 2;
@@ -13,14 +13,14 @@ const FooterContainer = styled.footer`
   align-items: center;
 
   @media (max-width: 768px) {
-    padding: 16px 24px;
+    padding: 12px 18px;
   }
 `;
 
 const Copyright = styled.p`
   margin: 0;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
 `;
