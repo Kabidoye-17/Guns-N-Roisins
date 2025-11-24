@@ -231,7 +231,7 @@ const GameContainer = styled.div`
   border-radius: 12px;
   border: 2px solid ${props => props.accentColor};
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
+  overflow: auto;
   position: relative;
   display: flex;
   align-items: center;
@@ -537,6 +537,38 @@ const StatValue = styled.div`
   color: ${props => props.color || theme.primary};
 `;
 
+const CrosswordWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+`;
+
+const CrosswordIframe = styled.iframe`
+  width: 1200px;
+  height: 900px;
+  border: 3px solid ${props => props.accentColor || '#000'};
+  display: block;
+  transform: scale(0.65);
+  transform-origin: center center;
+  flex-shrink: 0;
+
+  @media (max-width: 1024px) {
+    width: 1000px;
+    height: 750px;
+    transform: scale(0.6);
+  }
+
+  @media (max-width: 768px) {
+    width: 800px;
+    height: 600px;
+    transform: scale(0.55);
+  }
+`;
+
 function EpisodeQuizPage() {
   const { episodeId } = useParams();
   const episodeIndex = parseInt(episodeId) - 1;
@@ -554,6 +586,84 @@ function EpisodeQuizPage() {
   }
 
   const accentColor = accentColors[episode.colorTheme] || accentColors.yellow;
+
+  const handleFullscreen = () => {
+    if (containerRef.current) {
+      if (containerRef.current.requestFullscreen) {
+        containerRef.current.requestFullscreen();
+      }
+    }
+  };
+
+  // Handle crossword puzzle
+  if (episode.gameContent && episode.gameContent.type === 'crossword') {
+    const crosswordDescription = episode.gameContent.about || 'Complete this interactive crossword puzzle';
+    const crosswordInstructions = episode.gameContent.howToPlay?.steps || [
+      "Click on a clue to highlight the corresponding word",
+      "Type your answer directly into the crossword grid",
+      "Use the 'Check' button to verify your answers",
+      "Stuck? Use the 'Reveal' button for hints"
+    ];
+    const crosswordUrl = episode.gameContent.url;
+
+    return (
+      <FullScreenContainer ref={containerRef}>
+        <Pentagon color={accentColor} size="200px" mobileSize="120px" position="top: 100px; right: 8%;" />
+        <Star color={accentColor} size="160px" mobileSize="90px" position="top: 350px; left: 5%;" />
+        <ElongatedRect color={accentColor} width="320px" height="140px" mobileWidth="190px" mobileHeight="80px" rotate="rotate(35deg)" position="bottom: 150px; right: -50px;" />
+        <Pentagon color={accentColor} size="180px" mobileSize="100px" position="bottom: 80px; left: 10%;" />
+        <Star color={accentColor} size="140px" mobileSize="80px" position="top: 200px; right: 15%;" />
+
+        <TopBar accentColor={accentColor}>
+          <BackButton to={`/episode/${episodeId}`} accentColor={accentColor}>
+            <ArrowLeft size={18} weight="bold" />
+            Back
+          </BackButton>
+          <TitleSection>
+            <Title>{episode.title} Crossword</Title>
+          </TitleSection>
+          <FullscreenButton onClick={handleFullscreen} accentColor={accentColor}>
+            <ArrowsOut size={18} weight="bold" />
+            Fullscreen
+          </FullscreenButton>
+        </TopBar>
+
+        <MainContent>
+          <GameContainer accentColor={accentColor}>
+            <CrosswordWrapper>
+              <CrosswordIframe
+                src={crosswordUrl}
+                title="Crossword Puzzle"
+                frameBorder="0"
+                accentColor={accentColor}
+              />
+            </CrosswordWrapper>
+          </GameContainer>
+
+          <InfoPanel accentColor={accentColor}>
+            <InfoSection>
+              <SectionTitle accentColor={accentColor}>
+                <Info size={20} weight="duotone" />
+                About
+              </SectionTitle>
+              <SectionContent>{crosswordDescription}</SectionContent>
+            </InfoSection>
+
+            {crosswordInstructions.length > 0 && (
+              <InfoSection>
+                <SectionTitle accentColor={accentColor}>How to Play</SectionTitle>
+                <InstructionList accentColor={accentColor}>
+                  {crosswordInstructions.map((instruction, index) => (
+                    <li key={index}>{instruction}</li>
+                  ))}
+                </InstructionList>
+              </InfoSection>
+            )}
+          </InfoPanel>
+        </MainContent>
+      </FullScreenContainer>
+    );
+  }
 
   // Transform episode data into quiz format
   let quizTitle = episode.title;
@@ -613,14 +723,6 @@ function EpisodeQuizPage() {
     setShowResult(false);
     setAnswers([]);
     setQuizComplete(false);
-  };
-
-  const handleFullscreen = () => {
-    if (containerRef.current) {
-      if (containerRef.current.requestFullscreen) {
-        containerRef.current.requestFullscreen();
-      }
-    }
   };
 
   // Render quiz complete screen

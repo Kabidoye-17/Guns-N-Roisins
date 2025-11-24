@@ -203,7 +203,20 @@
     "description": "Economics blah blah",
     "colorTheme": "pink",
     "credits": "Daniel Moody, Justyna Przyborska",
-    "references": []
+    "references": [],
+    "gameContent": {
+      "type": "crossword",
+      "about": "Test your economics knowledge with this interactive crossword puzzle",
+      "howToPlay": {
+        "steps": [
+          "Click on a clue to highlight the corresponding word",
+          "Type your answer directly into the crossword grid",
+          "Use the 'Check' button to verify your answers",
+          "Stuck? Use the 'Reveal' button for hints"
+        ]
+      },
+      "url": "https://crosswordlabs.com/embed/2025-11-24-234"
+    }
   },
   {
     "image": "/podcast.jpg",
