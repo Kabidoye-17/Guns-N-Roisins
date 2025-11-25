@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Guns-N-Roisins/static/css/main.cfbe5705.css",
-    "main.js": "/Guns-N-Roisins/static/js/main.dc11f071.js",
+    "main.js": "/Guns-N-Roisins/static/js/main.ff1a2d12.js",
     "index.html": "/Guns-N-Roisins/index.html",
     "main.cfbe5705.css.map": "/Guns-N-Roisins/static/css/main.cfbe5705.css.map",
-    "main.dc11f071.js.map": "/Guns-N-Roisins/static/js/main.dc11f071.js.map"
+    "main.ff1a2d12.js.map": "/Guns-N-Roisins/static/js/main.ff1a2d12.js.map"
   },
   "entrypoints": [
     "static/css/main.cfbe5705.css",
-    "static/js/main.dc11f071.js"
+    "static/js/main.ff1a2d12.js"
   ]
 }
