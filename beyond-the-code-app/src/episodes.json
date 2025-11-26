@@ -7,7 +7,7 @@
     "guest": "Dr Cian O'Reilly",
     "description": "Ethics blah blah",
     "colorTheme": "yellow",
-    "credits": "Darragh Luby, Naem Haq, Mia Borko",
+    "credits": "Darragh Luby, Naem Haq, Mia Borko, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": [],
     "gameContent": {
       "type": "ethical-dilemmas",
@@ -202,7 +202,7 @@
     "guest": "Ushen Wijayaratne",
     "description": "Economics blah blah",
     "colorTheme": "pink",
-    "credits": "Daniel Moody, Justyna Przyborska",
+    "credits": "Daniel Moody, Justyna Przyborska, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": [],
     "gameContent": {
       "type": "crossword",
@@ -226,7 +226,7 @@
     "guest": "Violet Browne",
     "description": "Legal blah blah",
     "colorTheme": "green",
-    "credits": "Ruan O' Dowd, Michelle Vaz",
+    "credits": "Ruan O' Dowd, Michelle Vaz, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": []
   },
   {
@@ -235,9 +235,9 @@
     "duration": "TBD",
     "host": "Ellice Nelson",
     "guest": "Alisia Kazimierek, JJ Olajitan",
-    "description": "Contracts and Founders blah blah",
+    "description": "Negotiation is normal” — and in this episode, we prove it. Learn how to protect your equity, your contracts, and your sanity whether you’re building a company or joining one.",
     "colorTheme": "blue",
-    "credits": "Dawid Jakubowski, Nandakishore Vinayakrishnan",
+    "credits": "Dawid Jakubowski, Nandakishore Vinayakrishnan, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": []
   }
 ]
