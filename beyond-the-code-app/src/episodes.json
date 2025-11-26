@@ -200,7 +200,7 @@
     "duration": "TBD",
     "host": "Ellice Nelson",
     "guest": "Ushen Wijayaratne",
-    "description": "This podcast explores how economic forces shape the tech industry, from why tech salaries swing widely to the demand and supply of the Irish tech market. We demystify the AI bubble and what happens if the bubble pops. ",
+    "description": "This podcast explores how economic forces shape the tech industry, from why tech salaries swing widely to the demand and supply of the Irish tech market. We demystify the AI bubble and what happens if the bubble pops.",
     "colorTheme": "pink",
     "credits": "Daniel Moody, Justyna Przyborska, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": [
@@ -243,7 +243,16 @@
     "description": "Legal blah blah",
     "colorTheme": "green",
     "credits": "Ruan O' Dowd, Michelle Vaz, Jack Casey, Jean Carson, Kelly Abidoye",
-    "references": []
+    "references": [
+      "Baltes, S. and Diehl, S. (2018) \"Usage and Attribution of Stack Overflow Code Snippets in GitHub Projects.\" arXiv. available: https://doi.org/10.48550/arXiv.1802.02938. [accessed: November 26, 2025].",
+      "<i>General Data Protection Regulation (GDPR) – Legal Text</i> (no date) General Data Protection Regulation (GDPR). available: https://gdpr-info.eu/ [accessed: November 26, 2025].",
+      "\"GNU General Public License version 3\" (2007) <i>Open Source Initiative.</i> available at: https://opensource.org/license/gpl-3-0/ [accessed: November 26, 2025].",
+      "Legal aspects of free and open source software, compilation of briefing notes for workshop (2013). available at: https://www.europarl.europa.eu/document/activities/cont/201307/20130708ATT69346/20130708ATT69346EN.pdf [accessed: November 17, 2025].",
+      "<i>Open Source Initiative</i> (2025) Open Source Initiative. available at: https://opensource.org/ [accessed: November 26, 2025].",
+      "<i>Our thoughts and insights after 18 months of the new whistleblowing regime | A&L Goodbody LLP</i> (2024). available at: https://www.algoodbody.com/insights-publications/our-thoughts-and-insights-after-18-months-of-the-new-whistleblowing-regime [accessed: November 26, 2025].",
+      "Wintermyer, W. (2023) \"ANTONIA M. APPS REGIONAL DIRECTOR Tejal D. Shah Lindsay S. Moilanen Nancy A. Brown.\" available at: https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-74.pdf [accessed: November 26, 2025].",
+      "Wolford, B. (2018) \"What is GDPR, the EU's new data protection law?,\" <i>GDPR.eu</i>, 7 November. available at: https://gdpr.eu/what-is-gdpr/ [accessed: November 26, 2025]."
+    ]
   },
   {
     "image": "/podcast.jpg",
@@ -251,7 +260,7 @@
     "duration": "TBD",
     "host": "Ellice Nelson",
     "guest": "Alisia Kazimierek, JJ Olajitan",
-    "description": "Negotiation is normal” — and in this episode, we prove it. Learn how to protect your equity, your contracts, and your sanity whether you’re building a company or joining one.",
+    "description": "Negotiation is normal and in this episode, we prove it. Learn how to protect your equity, your contracts, and your sanity whether you’re building a company or joining one.",
     "colorTheme": "blue",
     "credits": "Dawid Jakubowski, Nandakishore Vinayakrishnan, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": [  ]
