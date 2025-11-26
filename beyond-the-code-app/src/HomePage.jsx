@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowDown, PuzzlePiece, Brain, Headphones } from '@phosphor-icons/react';
+import { ArrowDown } from '@phosphor-icons/react';
 import Carousel from './Carousel';
 import Header from './Header';
 import Footer from './Footer';
@@ -118,37 +117,6 @@ const HeroButtonGroup = styled.div`
 
   @media (max-width: 768px) {
     margin-bottom: 30px;
-  }
-`;
-
-const HeroPrimaryButton = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 30px;
-  background: #F0A848;
-  color: #4a3a2a;
-  text-decoration: none;
-  border-radius: 9px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(240, 168, 72, 0.4);
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 9px 24px rgba(240, 168, 72, 0.6);
-    background: #ffb85c;
-  }
-
-  &:active {
-    transform: translateY(-1px);
-  }
-
-  @media (max-width: 768px) {
-    padding: 12px 24px;
-    font-size: 12px;
   }
 `;
 
@@ -323,66 +291,6 @@ const Page = styled.div`
   }
 `;
 
-const LinkCard = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  padding: 30px 45px;
-  background: linear-gradient(135deg, #8d75e6 0%, #6956a8 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(141, 117, 230, 0.4);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 9px 24px rgba(141, 117, 230, 0.5);
-
-    &::before {
-      opacity: 1;
-    }
-  }
-
-  &:active {
-    transform: translateY(-2px) scale(1.01);
-  }
-
-  @media (max-width: 768px) {
-    padding: 22px 30px;
-    font-size: 15px;
-  }
-`;
-
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 9px;
-`;
-
-const ButtonText = styled.span`
-  display: flex;
-  align-items: center;
-  gap: 9px;
-`;
-
 const SectionHeading = styled.h1`
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 48px;
@@ -476,131 +384,6 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-`;
-
-const AccentBar = styled.div`
-  width: 90px;
-  height: 5px;
-  background: linear-gradient(90deg, #fff79e 0%, #C1FFBA 25%, #BAEFF5 50%, #ffbaf7 75%, #a990f5 100%);
-  border-radius: 2px;
-  margin: 0 auto 24px;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 2px 11px rgba(255, 247, 158, 0.3);
-`;
-
-const FeatureBadges = styled.div`
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    gap: 9px;
-  }
-`;
-
-const Badge = styled.div`
-  padding: 6px 15px;
-  background: ${props => props.bgColor};
-  color: white;
-  border-radius: 15px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  box-shadow: 0 3px 9px ${props => props.shadowColor};
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 768px) {
-    padding: 5px 12px;
-    font-size: 10px;
-  }
-`;
-
-const FeatureGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 675px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-
-  @media (max-width: 968px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-`;
-
-const FeatureCard = styled.div`
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
-  padding: 24px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    transform: translateY(-6px);
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 9px 24px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-const IconCircle = styled.div`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: ${props => props.bgColor || 'white'};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-`;
-
-const FeatureText = styled.div`
-  flex: 1;
-`;
-
-const FeatureTitle = styled.h3`
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-  margin: 0;
-`;
-
-const FeatureDescription = styled.p`
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0;
-  line-height: 1.6;
-  display: none;
-
-  @media (max-width: 768px) {
-    display: block;
-  }
 `;
 
 function HomePage() {

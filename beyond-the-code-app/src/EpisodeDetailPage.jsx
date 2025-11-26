@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { Play, Pause, ArrowLeft, GameController, ArrowRight } from '@phosphor-icons/react';
+import { Play, Pause, GameController, ArrowRight } from '@phosphor-icons/react';
 import Header from './Header';
 import Footer from './Footer';
 import episodes from './episodes.json';
@@ -129,26 +129,6 @@ const EpisodeTitle = styled.h1`
 
   @media (max-width: 768px) {
     font-size: 27px;
-  }
-`;
-
-const EpisodeMeta = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-`;
-
-const MetaItem = styled.span`
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-
-  strong {
-    color: ${props => props.accentColor || 'white'};
-    font-weight: 700;
   }
 `;
 

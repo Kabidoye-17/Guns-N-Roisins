@@ -143,7 +143,6 @@ const NavIconWrapper = styled.span`
 function Header() {
   const location = useLocation();
   const isHome = location.pathname === '/' || location.pathname === '/Guns-N-Roisins' || location.pathname === '/Guns-N-Roisins/';
-  const isEpisode = location.pathname.includes('/episode/');
 
   return (
     <HeaderContainer>
