@@ -405,10 +405,9 @@ function HomePage() {
         <HeroTriangle />
         <HeroContent>
           <HeroTitle>Beyond the Code</HeroTitle>
-          <HeroTagline>Where Technology Meets Innovation</HeroTagline>
+          <HeroTagline>What Every Engineer Should Know</HeroTagline>
           <HeroDescription>
-            Join us as we explore the stories behind the world's most innovative tech leaders,
-            diving deep into their journeys, challenges, and the future they're building.
+            Join us as we unpack the practical stuff no one teaches you at university. From contracts and founders negotiations to ethics, we give early engineers the know-how to navigate a career beyond the code
           </HeroDescription>
           <HeroButtonGroup>
             <HeroSecondaryButton onClick={scrollToEpisodes}>

@@ -5,7 +5,7 @@
     "duration": "TBD",
     "host": "Ellice Hamilton",
     "guest": "Dr Cian O'Reilly",
-    "description": "Ethics blah blah",
+    "description": "Ethics expert Dr Cian O’ Reilly joins us to unpack why just “following the law” isn’t enough in software engineering, especially with AI, social media, and FOSS shaping people’s lives every day. We dive into real-world harms like biased algorithms, dark patterns, and environmental impact, and how company culture can make things better or worse. Dr O’ Reilly leaves us with practical advice on speaking up, using ethical codes, and remembering that every line of code has consequences.",
     "colorTheme": "yellow",
     "credits": "Darragh Luby, Naem Haq, Mia Borko, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": [],
@@ -239,7 +239,7 @@
     "title": "Legal",
     "duration": "TBD",
     "host": "Ellice Hamilton",
-    "guest": "Violet Browne",
+    "guest": "Alda Miller",
     "description": "Legal blah blah",
     "colorTheme": "green",
     "credits": "Ruan O' Dowd, Michelle Vaz, Jack Casey, Jean Carson, Kelly Abidoye",
@@ -263,6 +263,23 @@
     "description": "Negotiation is normal and in this episode, we prove it. Learn how to protect your equity, your contracts, and your sanity whether you’re building a company or joining one.",
     "colorTheme": "blue",
     "credits": "Dawid Jakubowski, Nandakishore Vinayakrishnan, Jack Casey, Jean Carson, Kelly Abidoye",
-    "references": [  ]
+    "references": [
+      "10 Crucial Team Roles in a Software Development Team [online] (2025) <i>GeeksforGeeks</i>, available: https://www.geeksforgeeks.org/blogs/crucial-team-roles-in-a-software-development-team/ [accessed 3 Nov 2025].",
+      "Buddy, H.R. (2024) 'HR Consulting Ireland and Employment Contracts in Ireland', <i>HR Buddy</i>, available: https://www.hrbuddy.ie/blog/hr-consulting-ireland-and-employment-contracts-in-ireland/ [accessed 31 Oct 2025].",
+      "Campbell, J. (2024) The Beer Test: Good Intentions — But a Bad Hiring Practice, available: https://www.linkedin.com/business/talent/blog/talent-acquisition/what-is-the-beer-test [accessed 3 Nov 2025].",
+      "Citizensinformation.ie (2025a) Contract of Employment [online], available: https://www.citizensinformation.ie/en/employment/employment-rights-and-conditions/contracts-of-employment/contract-of-employment/ [accessed 31 Oct 2025].",
+      "Citizensinformation.ie (2025b) Different Types of Workers [online], available: https://www.citizensinformation.ie/en/employment/types-of-employment/different-types-of-workers/ [accessed 3 Nov 2025].",
+      "Citizensinformation.ie (2025c) Employees' Rights and Entitlements [online], available: https://www.citizensinformation.ie/en/employment/employment-rights-and-conditions/employment-rights-and-duties/employee-rights-and-entitlements/ [accessed 3 Nov 2025].",
+      "Cole, J. (2025) Equity Vs. Stock Options, available: https://www.jamescole.co/blog/equity-vs-stock-options [accessed 3 Nov 2025].",
+      "How to Accept a Job Offer [online] (2025) <i>UCD Professional Academy</i>, available: https://www.ucd.ie/professionalacademy/resources/career-advice/how-to-accept-a-job-offer/ [accessed 3 Nov 2025].",
+      "How to Negotiate Your Salary in 7 Easy Steps (Plus Tips) [online] (2025) <i>Indeed Career Guide</i>, available: https://ie.indeed.com/career-advice/pay-salary/how-to-negotiate-salary [accessed 31 Oct 2025].",
+      "Karnjanaprakorn, M. (2017) My Ideal Work Week as a Startup CEO, available: https://medium.com/swlh/my-ideal-work-week-as-a-startup-ceo-5d3a4bd8ccc7 [accessed 3 Nov 2025].",
+      "Lee, S. (2025) Falling Flat: Why Startups Need Hierarchical Structure, available: https://knowledge.wharton.upenn.edu/podcast/knowledge-at-wharton-podcast/why-startups-need-hierarchical-structure/ [accessed 3 Nov 2025].",
+      "Mirza, S. (2025) 'Top 10 Employment Contract Red Flags', <i>Thrive Law</i>, available: https://thrivelawyers.ca/employment-contract-red-flags/ [accessed 31 Oct 2025].",
+      "<i>71% of startup founders sacrifice private lives for work | Startups Magazine</i> (2025), available: https://startupsmagazine.co.uk/article-71-startup-founders-sacrifice-private-lives-work [accessed 3 Nov 2025].",
+      "<i>Retirement topics - Vesting</i> (2025), available: https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-vesting [accessed 3 Nov 2025].",
+      "<i>Salary: Graduate Software Engineer in Dublin 2025</i> (2025), available: https://www.glassdoor.ie/Salaries/dublin-graduate-software-engineer-salary-SRCH_IL.0,6_IM1052_KO7,33.htm [accessed 3 Nov 2025].",
+      "Terms of Employment [online] (2025) <i>Workplace Relations Commission</i>, available: https://www.workplacerelations.ie/en/what_you_should_know/employer-obligations/terms-of-employment/ [accessed 31 Oct 2025]."
+    ]
   }
 ]

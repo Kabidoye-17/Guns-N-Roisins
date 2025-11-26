@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Headphones } from '@phosphor-icons/react';
 
 const Card = styled.div`
-  width: 240px;
+  width: 280px;
+  height: 450px;
   background-color: white;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
@@ -12,6 +13,8 @@ const Card = styled.div`
   overflow: hidden;
   transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-3px);
@@ -44,6 +47,10 @@ const Content = styled.div`
   padding: 18px;
   padding-bottom: 52px;
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 `;
 
 const TitleRow = styled.div`
@@ -93,6 +100,11 @@ const Description = styled.p`
   margin: 9px 0 0 0;
   font-style: italic;
   line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 `;
 
 const PlayButton = styled(Link)`
