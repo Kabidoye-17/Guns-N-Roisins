@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { Play, Pause, GameController, ArrowRight } from '@phosphor-icons/react';
+import { Play, Pause, GameController, ArrowRight, CaretDown } from '@phosphor-icons/react';
 import Header from './Header';
 import Footer from './Footer';
 import episodes from './episodes.json';
@@ -404,40 +404,74 @@ const QuizButton = styled(Link)`
   }
 `;
 
-const ReferencesList = styled.ul`
-  list-style: none;
+const ReferencesList = styled.div`
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
 `;
 
-const ReferenceItem = styled.li`
+const ReferenceItem = styled.div`
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.95);
   line-height: 1.7;
-  position: relative;
-  padding-left: 27px;
-
-  &::before {
-    content: '${props => props.number}.';
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-    color: ${props => props.accentColor};
-    font-size: 14px;
-  }
+  padding-left: 1.2em;
+  text-indent: -1.2em;
 
   @media (max-width: 768px) {
     font-size: 12px;
-    padding-left: 24px;
-
-    &::before {
-      font-size: 12px;
-    }
   }
+`;
+
+const ReferencesDropdownHeader = styled.button`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 0;
+  margin-bottom: ${props => props.isOpen ? '18px' : '0'};
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-bottom-color: ${props => props.accentColor}80;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 0;
+    margin-bottom: ${props => props.isOpen ? '15px' : '0'};
+  }
+`;
+
+const ReferencesDropdownTitle = styled.h2`
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+`;
+
+const DropdownIcon = styled.div`
+  display: flex;
+  align-items: center;
+  color: ${props => props.accentColor};
+  transition: transform 0.3s ease;
+  transform: ${props => props.isOpen ? 'rotate(180deg)' : 'rotate(0)'};
+`;
+
+const ReferencesContent = styled.div`
+  max-height: ${props => props.isOpen ? '2000px' : '0'};
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 `;
 
 function EpisodeDetailPage() {
@@ -449,6 +483,7 @@ function EpisodeDetailPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [referencesOpen, setReferencesOpen] = useState(false);
 
   // Scroll to top when page loads
   useEffect(() => {
@@ -634,20 +669,28 @@ function EpisodeDetailPage() {
         </QuizSection>
 
         {episode.references && episode.references.length > 0 && (
-          <>
-            <SectionTitle>References</SectionTitle>
-            <ReferencesList>
-              {episode.references.map((reference, index) => (
-                <ReferenceItem
-                  key={index}
-                  accentColor={accentColor}
-                  number={index + 1}
-                >
-                  {reference}
-                </ReferenceItem>
-              ))}
-            </ReferencesList>
-          </>
+          <div style={{ marginTop: '36px' }}>
+            <ReferencesDropdownHeader
+              onClick={() => setReferencesOpen(!referencesOpen)}
+              accentColor={accentColor}
+              isOpen={referencesOpen}
+            >
+              <ReferencesDropdownTitle>References</ReferencesDropdownTitle>
+              <DropdownIcon accentColor={accentColor} isOpen={referencesOpen}>
+                <CaretDown size={28} weight="bold" />
+              </DropdownIcon>
+            </ReferencesDropdownHeader>
+            <ReferencesContent isOpen={referencesOpen}>
+              <ReferencesList>
+                {episode.references.map((reference, index) => (
+                  <ReferenceItem
+                    key={index}
+                    dangerouslySetInnerHTML={{ __html: reference }}
+                  />
+                ))}
+              </ReferencesList>
+            </ReferencesContent>
+          </div>
         )}
       </ContentContainer>
 

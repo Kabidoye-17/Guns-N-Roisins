@@ -200,11 +200,27 @@
     "duration": "TBD",
     "host": "Ellice Nelson",
     "guest": "Ushen Wijayaratne",
-    "description": "Economics blah blah",
+    "description": "This podcast explores how economic forces shape the tech industry, from why tech salaries swing widely to the demand and supply of the Irish tech market. We demystify the AI bubble and what happens if the bubble pops. ",
     "colorTheme": "pink",
     "credits": "Daniel Moody, Justyna Przyborska, Jack Casey, Jean Carson, Kelly Abidoye",
-    "references": [],
-    "gameContent": {
+    "references": [
+      "Bailyn, E. (2024) 'How to Value & Sell a SaaS Company', <i>First Page Sage</i>, available: https://firstpagesage.com/business/how-to-value-and-sell-a-saas-company/ [accessed 4 Nov 2025].",
+      "Economics Defined With Types, Indicators, and Systems [online] (2025) <i>Investopedia</i>, available: https://www.Investopedia.com/terms/e/economics.asp [accessed 26 Nov 2025].",
+      "Foreign Direct Investment [online] (2025) available: https://enterprise.gov.ie/en/what-we-do/trade-investment/foreign-direct-investment-fdi-/fdi.html [accessed 26 Nov 2025].",
+      "Gu, J. and Metz, C. (2025) 'How OpenAI Uses Complex and Circular Deals to Fuel Its Multibillion-Dollar Rise', <i>The New York Times</i>, 31 Oct, available: https://www.nytimes.com/interactive/2025/10/31/technology/openai-fundraising-deals.html [accessed 4 Nov 2025].",
+      "How Do Interest Rates Affect the Stock Market? [online] (2025) <i>Investopedia</i>, available: https://www.Investopedia.com/investing/how-interest-rates-affect-stock-market/ [accessed 4 Nov 2025].",
+      "Irish Examiner (2021) Dublin Secures a Brexit Win as City of London Hit Worse than Expected [online], available: https://www.irishexaminer.com/business/economy/arid-40268009.html [accessed 26 Nov 2025].",
+      "Jeremy Kahn (2025) Nvidia's $100 Billion OpenAI Investment Raises Eyebrows and a Key Question: How Much of the AI Boom Is Just Nvidia's Cash Being Recycled? [online], Yahoo Finance, available: https://finance.yahoo.com/news/nvidia-100-billion-openai-investment-110000256.html [accessed 4 Nov 2025].",
+      "Landymore, F. (2025) 'The Amount of Money OpenAI Lost Last Quarter Will Make You Choke on Your Slurpee',<i>Futurism</i>, available: https://futurism.com/artificial-intelligence/openai-money-lost-quarter [accessed 4 Nov 2025].",
+      "Microeconomics vs. Macroeconomics: Key Differences Explained [online] (2025) <i>Investopedia</i>, available: https://www.Investopedia.com/ask/answers/difference-between-microeconomics-and-macroeconomics/ [accessed 26 Nov 2025].",
+      "Network Effects: Creating Tech Equity Value [online] (2025) <i>Morgan Stanley</i>, available: https://www.morganstanley.com/ideas/network-effects-global-tech-equity-value [accessed 4 Nov 2025].",
+      "Obed, D.E. (2025) 'The $1.7 Trillion Paradox: How Amazon Turned 20 Years of Losses Into the Ultimate Victory', <i>Medium</i>, available: https://medium.com/@ehoneahobed/the-1-7-trillion-paradox-how-amazon-turned-20-years-of-losses-into-the-ultimate-victory-78a6ca26dc3d [accessed 4 Nov 2025].",
+      "OnlyCFO (2025) Snowflake's Fall to Earth 📉 [online], available: https://www.onlycfo.io/p/snowflakes-fall-to-earth [accessed 26 Nov 2025].",
+      "Report 2025: Bridging Ireland's Tech Skills Gap through Social Mobility | Generation Ireland [online] (2025) available: https://ireland.generation.org/news/report-2025-bridging-irelands-tech-skills-gap-through-social-mobility/ [accessed 26 Nov 2025].",
+      "<i>The State of the AI Industry Is Freaking Me Out</i> [online] (2025) available: https://www.youtube.com/watch?v=Q0TpWitfxPk [accessed 4 Nov 2025].",
+      "What Is Series Funding A, B, and C? [online] (2025) <i>Investopedia</i>, available: https://www.Investopedia.com/articles/personal-finance/102015/series-b-c-funding-what-it-all-means-and-how-it-works.asp [accessed 4 Nov 2025]."
+    ],
+     "gameContent": {
       "type": "crossword",
       "about": "Test your economics knowledge with this interactive crossword puzzle",
       "howToPlay": {
