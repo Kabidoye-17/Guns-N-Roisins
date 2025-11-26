@@ -18,7 +18,11 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd beyond-the-code-app
+          npm install
 
       - name: Deploy
-        run: npm run deploy
+        run: |
+          cd beyond-the-code-app
+          npm run deploy
