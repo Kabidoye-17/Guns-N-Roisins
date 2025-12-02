@@ -1,6 +1,6 @@
 [
   {
-    "image": "/podcast.jpg",
+    "image": "/ethics.jpg",
     "title": "Ethics",
     "duration": "TBD",
     "host": "Ellice Hamilton",
@@ -235,12 +235,12 @@
     }
   },
   {
-    "image": "/podcast.jpg",
+    "image": "/legal.jpg",
     "title": "Legal",
     "duration": "TBD",
     "host": "Ellice Hamilton",
     "guest": "Alda Miller",
-    "description": "Legal blah blah",
+    "description": "In this episode, Intellectual Property Paralegal Alda Miller shows us that legal concerns aren’t just for the legal department. Be it the intricacies of code licensing, how to develop with the GDPR in mind, or when and how you should blow the whistle - we cover what every developer needs to know about the law.",
     "colorTheme": "green",
     "credits": "Ruan O' Dowd, Michelle Vaz, Jack Casey, Jean Carson, Kelly Abidoye",
     "references": [
@@ -255,7 +255,7 @@
     ]
   },
   {
-    "image": "/podcast.jpg",
+    "image": "/cAndF.jpg",
     "title": "Contracts and Founders",
     "duration": "TBD",
     "host": "Ellice Hamilton",
@@ -280,6 +280,260 @@
       "<i>Retirement topics - Vesting</i> (2025), available: https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-vesting [accessed 3 Nov 2025].",
       "<i>Salary: Graduate Software Engineer in Dublin 2025</i> (2025), available: https://www.glassdoor.ie/Salaries/dublin-graduate-software-engineer-salary-SRCH_IL.0,6_IM1052_KO7,33.htm [accessed 3 Nov 2025].",
       "Terms of Employment [online] (2025) <i>Workplace Relations Commission</i>, available: https://www.workplacerelations.ie/en/what_you_should_know/employer-obligations/terms-of-employment/ [accessed 31 Oct 2025]."
-    ]
+    ],
+    "gameContent": {
+      "type": "contracts-and-founders-dilemmas",
+      "about": "Pick the best course of action in these common startup and contract negotiation scenarios",
+      "howToPlay": {
+        "steps": [
+          "Read each scenario carefully",
+          "Consider all options before selecting your answer",
+          "Choose the option you think is correct",
+          "Review the reasoning to understand why it's the best choice"
+        ]
+      },
+      "scenarios": [
+        {
+          "id": 1,
+          "title": "50/50 Split",
+          "description": "You and your friend from college have been working on a project together for a couple of months. You're both equally passionate and have contributed about the same in terms of workload. You're just about ready to formalize the company structure, and your friend suggests a 50/50 equity structure. What do you do?",
+          "reasoning": "The correct option is B. While this option would be a tough pill to swallow, for you or for them, it's solving a critical structural problem right now instead of later on.",
+          "options": [
+            {
+              "text": "A) Accept the 50/50 split, it's only fair, right?",
+              "correct": false
+            },
+            {
+              "text": "B) Propose a 51/49 split, with the larger share going to the CEO.",
+              "correct": true
+            },
+            {
+              "text": "C) Bring in a 3rd founder to split it 33/33/34",
+              "correct": false
+            },
+            {
+              "text": "D) Suggest keeping it 50/50 but flip coins when there's a disagreement.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Early Departure",
+          "description": "6 months into your startup, your co-founder who owns 49% of the company gets an unbeatable offer from a Magnificent 7 company. They're burnt out, and frankly, are considering taking it. You've never implemented a vesting schedule because 'we all trust each other.' If they leave, they keep their full 40% equity. What should you have done from week one?",
+          "reasoning": "The correct option is B. This is industry standard for good reason. Vesting schedules protect everyone and is a sign of professional management, not distrust.",
+          "options": [
+            {
+              "text": "A) Accept the 50/50 split, it's only fair, right?",
+              "correct": false
+            },
+            {
+              "text": "B) Implement a vesting schedule with a set cliff for all founders.",
+              "correct": true
+            },
+            {
+              "text": "C) Make everyone sign non-compete agreements.",
+              "correct": false
+            },
+            {
+              "text": "D) Hold all equity under your name.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Burnout Warning",
+          "description": "10 months into your startup, you're working 60-70 hour working weeks. You're so close to your MVP being done, but you've sacrificed your exercise, eating, and your social life for it. You have a crucial investor meeting in 2 weeks. What do you do?",
+          "reasoning": "The correct option is B. This is industry standard for good reason. Vesting schedules protect everyone and is a sign of professional management, not distrust.",
+          "options": [
+            {
+              "text": "A) Accept the 50/50 split, it's only fair, right?",
+              "correct": false
+            },
+            {
+              "text": "B) Take the weekend off, implement structured 'office hours', up to a maximum of 8 hours a day.",
+              "correct": true
+            },
+            {
+              "text": "C) Hire a consultant to take some work off your plate",
+              "correct": false
+            },
+            {
+              "text": "D) Reschedule the meeting and take the rest of the month off.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Hiring your Staff",
+          "description": "You're hiring! Specifically, you're looking for a full-stack developer. You have two great candidates.\nCandidate A: Your former roommate who's a solid dev. You know you work great together, would definitely pass a 'beer test', and they're excited about your vision.\nCandidate B: A developer you met at a mixer. They're stronger in the exact areas you're weak, and have worked in a couple of startups before. However, they're a bit more reserved, and you're not too sure they'd gel well with the rest of the team.\nWho do you hire?",
+          "reasoning": "The correct option is B. Would an investor want to invest in a group of friends who know how to have a good time, or would they want to invest in a well-oiled machine that can generate returns?",
+          "options": [
+            {
+              "text": "A) Candidate A, if you can trust your roommate to keep the kitchen clean, you can trust him to keep your codebase clean too. Culture and trust matters more than things ChatGPT could tell you.",
+              "correct": false
+            },
+            {
+              "text": "B) Candidate B, their skills complement yours, they know how startups work, and a reserved personality's the kind of type you want when potentially dealing with other people's money.",
+              "correct": true
+            },
+            {
+              "text": "C) Neither, keep looking for the Chosen One.",
+              "correct": false
+            },
+            {
+              "text": "D) Hire both part-time and see who works better.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "The Golden Deal",
+          "description": "Your pre-revenue startup needs cloud infrastructure, and BWS offers to host you. Luckily, your architecture is portable.\nTheir 15-page contract auto-renews, needs 90 days’ notice to cancel, gives €300 free in year one and 60% off in year two, then jumps to €3k/year. BWS is also known for big accidental charges and poor support.\nAlternatively, Moogle Cloud offers €1500/month for everything you need, but it’s just one server and doesn’t scale well.What do you do?",
+          "reasoning": "The correct option is C. This is the professional approach. The contract's true value (€3k+/year after year 2) justifies legal review. Get clear exit terms, reduce cancellation to 30 days, remove auto-renewal, ensure portability. A lawyer costs €2-5k but protects months of runway.",
+          "options": [
+            {
+              "text": "A) Sign it, you're pre-revenue, and you can't turn down free infrastructure! You can always switch off of it whenever you want.",
+              "correct": false
+            },
+            {
+              "text": "B) Decline BWS and go with Moogle Cloud, it's more reliable.",
+              "correct": false
+            },
+            {
+              "text": "C) Spend extra and put a lawyer on retainer, make them read over the contract and reach out to BWS to modify the terms.",
+              "correct": true
+            },
+            {
+              "text": "D) Use on-premises server infrastructure instead, bypass everything here!",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Ownership of Side Project",
+          "description": "John works as a software developer from 9 to 5 but in his own time works on a new app as a side project. His manager claims that this app belongs to the company as it is covered under his NDA, is this a red flag?",
+          "reasoning": " The correct option is A. Overly broad NDAs are a common red flag as some company try to take ownership of side projects like in Johns case.",
+          "options": [
+            {
+              "text": "A) Accept the 50/50 split, it's only fair, right?",
+              "correct": true
+            },
+            {
+              "text": "B) Yes, the app isn't relevant to his daily duties",
+              "correct": false
+            },
+            {
+              "text": "C) No, he is a full time employee and everything he develops belongs to the company",
+              "correct": false
+            },
+            {
+              "text": "D) No, John didn't declare this app to his manager",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "Unpaid Training",
+          "description": "Kate's got her dream job at a big software engineering company, however the job includes a 3 month unpaid training period before she can start making her negotiated salary, is this legal?",
+          "reasoning": "The correct option is A. Any time an employee spends doing something for their employer (including training), the employee is legally entitled to compensation.",
+          "options": [
+            {
+              "text": "A) No, any time that Kate spends doing her work duties she should be paid for it",
+              "correct": true
+            },
+            {
+              "text": "B) Generally no, but in this case it is because she renegotiated her salary",
+              "correct": false
+            },
+            {
+              "text": "C) Yes, big companies often train their employees before they can start paying them",
+              "correct": false
+            },
+            {
+              "text": "D) Yes, the hours are much shorter and workload is lighter for the training period",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "More Responsibility, Same Pay",
+          "description": "Alice's manager has severely been increasing her workload and isn't willing to increase her compensation. What red flag did Alice miss in her contract?",
+          "reasoning": "The correct option is A. Any time an employee spends doing something for their employer (including training), the employee is legally entitled to compensation.",
+          "options": [
+            {
+              "text": "A) Vague job description",
+              "correct": true
+            },
+            {
+              "text": "B) Non compete clause",
+              "correct": false
+            },
+            {
+              "text": "C) Excessive NDA",
+              "correct": false
+            },
+            {
+              "text": "D) Long working hours",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "Salary Expectations",
+          "description": "Matthew gets an interview with a company for a role he isn't overly familiar with but he has the skills required for the job. When asked about salary expectations, he refers to his previous job's salary which had similar skills but was a different role and a different area. What mistake did Matthew make?",
+          "reasoning": "The correct option is B. Researching salary ranges for similar roles in the area is a good way to prepare for interviews. It gives you an idea of how much you can expect and all gives you something to reference when negotiating. Also, a candidate in an interview stage isn't expected to know everything about the role yet, a high level understanding of the role is sufficient for this stage in the process.",
+          "options": [
+            {
+              "text": "A) He should expect a much higher salary than the previous job",
+              "correct": false
+            },
+            {
+              "text": "B) He should've researched similar roles in the area to get a salary range",
+              "correct": true
+            },
+            {
+              "text": "C) He mentioned his previous job which isn't relevant to the interview",
+              "correct": false
+            },
+            {
+              "text": "D) He doesn't know the full job description of the role before going to the interview",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "Contract Rejections",
+          "description": "Adam is reviewing his contract for a new job that he was offered. He immediately looks at the salary and isn't interested in other parts of the contract. The number was lower than he expected so he rejected the offer. Is this a good approach?",
+          "reasoning": "The correct option is C. A high salary isn't the only thing to look for in contracts. Other benefits such as healthcare or remote working options can end up saving the employee which as a whole could be a much higher compensation than just the salary figure. Also, turning down offers is normal, if a job isn't right for you, it's best to move on.",
+          "options": [
+            {
+              "text": "A) Yes, it saves time instead of reading unnecessarily long documents",
+              "correct": false
+            },
+            {
+              "text": "B) Yes, Adams reason for working is to make money so that's all that matters",
+              "correct": false
+            },
+            {
+              "text": "C) No, he could miss out on additional benefits like healthcare, pension, flexible/remote options",
+              "correct": true
+            },
+            {
+              "text": "D) No, turning it down will offend the employer and might negatively affect Adams future career",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    }
   }
 ]

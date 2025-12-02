@@ -234,7 +234,7 @@ const GameContainer = styled.div`
   overflow: auto;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: ${props => props.showResult ? 'flex-start' : 'center'};
   justify-content: center;
   padding: 18px;
   box-sizing: border-box;
@@ -677,7 +677,7 @@ function EpisodeQuizPage() {
   ];
   let questions = [];
 
-  if (episode.gameContent && episode.gameContent.type === 'ethical-dilemmas') {
+  if (episode.gameContent && (episode.gameContent.type === 'ethical-dilemmas' || episode.gameContent.type === 'quiz' || episode.gameContent.type === 'contracts-and-founders-dilemmas')) {
     description = episode.gameContent.about || 'Test your ethical decision-making with real-world scenarios';
     instructions = episode.gameContent.howToPlay?.steps || instructions;
     questions = episode.gameContent.scenarios.map(scenario => ({
@@ -686,7 +686,7 @@ function EpisodeQuizPage() {
       options: scenario.options.map(option => ({
         text: option.text,
         correct: option.correct === true,
-        feedback: option.feedback
+        feedback: option.feedback || scenario.reasoning
       }))
     }));
   }
@@ -836,7 +836,7 @@ function EpisodeQuizPage() {
       </TopBar>
 
       <MainContent>
-        <GameContainer accentColor={accentColor}>
+        <GameContainer accentColor={accentColor} showResult={showResult}>
           <QuizContainer>
             <QuestionCard>
               <Label>
