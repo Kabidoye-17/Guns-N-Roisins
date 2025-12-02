@@ -677,7 +677,7 @@ function EpisodeQuizPage() {
   ];
   let questions = [];
 
-  if (episode.gameContent && (episode.gameContent.type === 'ethical-dilemmas' || episode.gameContent.type === 'quiz' || episode.gameContent.type === 'contracts-and-founders-dilemmas')) {
+  if (episode.gameContent && (episode.gameContent.type === 'ethical-dilemmas' || episode.gameContent.type === 'quiz' || episode.gameContent.type === 'contracts-and-founders-dilemmas' || episode.gameContent.type === 'legal-dilemmas')) {
     description = episode.gameContent.about || 'Test your ethical decision-making with real-world scenarios';
     instructions = episode.gameContent.howToPlay?.steps || instructions;
     questions = episode.gameContent.scenarios.map(scenario => ({
@@ -865,7 +865,7 @@ function EpisodeQuizPage() {
 
             {showResult && selectedOption !== null && question.options[selectedOption].feedback && (
               <InfoBox>
-                <strong>Your choice:</strong> {question.options[selectedOption].feedback}
+             {question.options[selectedOption].feedback}
               </InfoBox>
             )}
 

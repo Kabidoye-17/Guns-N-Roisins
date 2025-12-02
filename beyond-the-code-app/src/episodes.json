@@ -252,7 +252,181 @@
       "<i>Our thoughts and insights after 18 months of the new whistleblowing regime | A&L Goodbody LLP</i> (2024). available at: https://www.algoodbody.com/insights-publications/our-thoughts-and-insights-after-18-months-of-the-new-whistleblowing-regime [accessed: November 26, 2025].",
       "Wintermyer, W. (2023) \"ANTONIA M. APPS REGIONAL DIRECTOR Tejal D. Shah Lindsay S. Moilanen Nancy A. Brown.\" available at: https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-74.pdf [accessed: November 26, 2025].",
       "Wolford, B. (2018) \"What is GDPR, the EU's new data protection law?,\" <i>GDPR.eu</i>, 7 November. available at: https://gdpr.eu/what-is-gdpr/ [accessed: November 26, 2025]."
-    ]
+    ],
+    "gameContent": {
+      "type": "legal-dilemmas",
+      "about": "⚖️ You're the jury! Decide whether these developers and companies are legally Guilty or Not Guilty",
+      "howToPlay": {
+        "steps": [
+          "Read each legal scenario carefully",
+          "Consider the relevant laws and regulations",
+          "Cast your verdict: Guilty or Not Guilty",
+          "Review the legal reasoning behind the correct verdict"
+        ]
+      },
+      "scenarios": [
+        {
+          "id": 1,
+          "title": "📜 The 'Open Source By Vibes' Startup",
+          "description": "A small startup uploads its internal toolkit to GitHub and announces it as open source, but they never attach a license. People start using it assuming it's open source.",
+          "reasoning": "⚖️ Verdict: GUILTY. Without a license, the code is not legally open source. All rights are reserved by default, meaning users don't have legal permission to use, modify, or distribute the code.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": true
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "🔒 The GPL Shortcut",
+          "description": "A company finds a great GPL library, tweaks it for their product, then ships the whole thing under a proprietary license to avoid sharing changes.",
+          "reasoning": "⚖️ Verdict: GUILTY. The GPL (General Public License) is a copyleft license that requires any modified versions to remain under the same license. By relicensing GPL code as proprietary, the company violates the original license terms.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": true
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "🍴 Academic Fork",
+          "description": "A group of developers get fed up with the direction of an open source project and fork the whole thing without informing the original maintainers. Drama explodes.",
+          "reasoning": "⚖️ Verdict: NOT GUILTY. Forking is explicitly allowed under open source licenses. You don't need permission from original maintainers to fork a project, even if it causes hurt feelings or community drama. That's the whole point of open source freedom!",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": false
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "📋 The Stack Overflow Ctrl+C Ctrl+V",
+          "description": "An engineer stuck on a mysterious bug finds a nearly identical solution in an online forum. Exhausted, they slot the solution into their codebase and push the fix minutes before a deadline, never leaving a note about where it came from.",
+          "reasoning": "⚖️ Verdict: GUILTY. Stack Overflow content is licensed under Creative Commons BY-SA, which requires attribution. Copying code without crediting the source violates the license terms, even if the code solves your problem perfectly.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": true
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "🤖 The Vibe Coder",
+          "description": "Evan wrestles with a stubborn legacy module causing intermittent failures. With a deadline approaching, he uses an LLM to generate replacement functions. Some structures remind him of code he's seen online. He checks the provider's policy, notices they offer IP indemnity, confirms with legal, then reviews and rewrites each piece before merging.",
+          "reasoning": "⚖️ Verdict: NOT GUILTY. Evan took reasonable steps: he verified the provider assumes IP risk, consulted legal, and reviewed/rewrote the output before using it. This demonstrates due diligence in managing potential copyright concerns with AI-generated code.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": false
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "🍦 Your Fav Icecream?",
+          "description": "A new app collects date of birth, full name, gender, and favourite ice cream flavour even though the only requirement is verifying that the user is over 18.",
+          "reasoning": "⚖️ Verdict: GUILTY. GDPR's data minimisation principle requires collecting only data that is necessary for the specified purpose. To verify age 18+, you only need the date of birth - collecting name, gender, and ice cream preference is excessive and violates GDPR.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": true
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "🏥 They Would Never Leak It, I Know Them!",
+          "description": "A small product team under pressure prepares a demo by gathering real user feedback and clinical trial notes in a shared spreadsheet. The document grows with lab observations, symptoms, and support call notes. No one locks it down or moves it to a secure area. By Friday, it's accessed from personal laptops and edited on café Wi-Fi, with no one realising the sensitive health data it contains.",
+          "reasoning": "⚖️ Verdict: GUILTY. Health data is 'special category' personal data under GDPR requiring strict safeguards including encryption, access controls, and secure storage. Storing it in an unsecured shared document accessible on public Wi-Fi is a serious breach with potential heavy fines.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": true
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "📊 Dodgy Request Courtesy of Ruan 😛",
+          "description": "Liam works at an AI startup struggling to gather training data. His manager mentions a large academic dataset on a partner university's server, collected under a non-commercial research licence. The manager hints no one would notice if they used it to accelerate internal training, framing it as a harmless head start. Liam hesitates, knowing the dataset has clear restrictions.",
+          "reasoning": "⚖️ Verdict: GUILTY. Using research-only data for commercial model training directly breaches the licence terms. This exposes both Liam and the company to legal liability for copyright infringement and breach of contract. 'No one will notice' is not a legal defence!",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": true
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "🛡️ The Frank Situation",
+          "description": "An engineering lead is asked to create fake user data to mislead an investor. They refuse and escalate the issue through proper channels instead of participating.",
+          "reasoning": "⚖️ Verdict: NOT GUILTY. Frank did the right thing! Refusing to participate in fraud and reporting it through proper channels protects him from legal liability. Whistleblower protections exist specifically for situations like this. Creating fake data to mislead investors is fraud, and Frank avoided complicity.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": false
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "🤐 The Silent Witness",
+          "description": "A developer discovers clear evidence of financial wrongdoing inside their company but says nothing because they are afraid of backlash.",
+          "reasoning": "⚖️ Verdict: GUILTY (of inaction). While fear of backlash is understandable, most jurisdictions have whistleblower protection laws and internal reporting channels. Staying silent when you have evidence of serious wrongdoing can make you complicit. The law expects you to report misconduct through protected channels.",
+          "options": [
+            {
+              "text": "⚖️ Guilty",
+              "correct": true
+            },
+            {
+              "text": "✅ Not Guilty",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "image": "/cAndF.jpg",
